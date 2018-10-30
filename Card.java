@@ -54,7 +54,7 @@ public boolean getStock()
 }
 public String toString()
 {
-	String temp = this.name +"/t"+ this.Type +"/t"+ this.CMC +"/t"+ this.Price +"/t"+ this.inStock;
+	String temp = this.name +"\t"+ this.Type +"\t"+ this.CMC +"\t"+ this.Price +"\t"+ this.inStock;
 	return temp;
 }
 }
