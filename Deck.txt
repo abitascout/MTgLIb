@@ -1,5 +1,5 @@
 Commander				CMC		price US Dollars	U =Blue B = Black
-Yuriko, the Tiger's shadow		1UB		15.90			total $210.63
+Yuriko, the Tiger's shadow		1UB		15.90			
 
 Creatures(18)
 Dimir Infiltrator			UB		0.20
