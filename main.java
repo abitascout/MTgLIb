@@ -13,12 +13,21 @@ public class main {
 	}
 	public static void importFile()
 	{
-		File in = new File("input.txt");
+		File in = new File("Deck.txt");
 		try
 		{
-			Scanner FileReader = new Scanner(in);
-			String x = FileReader.next();
-			System.out.println(x);
+			Scanner FileReader = new Scanner(in).useDelimiter("\t");
+			FileReader.nextLine();
+			System.out.println(FileReader.next());//name
+			System.out.println(FileReader.next());//cmc
+			System.out.println(FileReader.next());//type
+			System.out.println(FileReader.next());//price
+			while(FileReader.hasNext())
+			{
+				System.out.println(FileReader.next());
+				FileReader.nextLine();
+				
+			}
 			FileReader.close();
 		}
 		catch(FileNotFoundException e)
