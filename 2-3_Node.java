@@ -1,7 +1,7 @@
 public class 2-3_Node
 {
 	private Type data;
-	private Node<Type> link;
+	private 2-3_Node<Type> link;
 	
 	// constructor
 	public Node()
@@ -29,27 +29,27 @@ public class 2-3_Node
 	}
 	
 	// accessor and mutator for the link
-	public void set_leftLink(Node<Type> link)
+	public void set_leftLink(2-3_Node<Type> link)
 	{
 		this.link = link;
 	}
-	public Node<Type> get_leftLink()
+	public 2-3_Node<Type> get_leftLink()
 	{
 		return this.link;
 	}
-	public void set_rightLink(Node<Type> link)
+	public void set_rightLink(2-3_Node<Type> link)
 	{
 		this.link = link;
 	}
-	public Node<Type> get_rightLink()
+	public 2-3_Node<Type> get_rightLink()
 	{
 		return this.link;
 	}
-	public void set_middleLink(Node<Type> link)
+	public void set_middleLink(2-3_Node<Type> link)
 	{
 		this.link = link;
 	}
-	public Node<Type> get_middle()
+	public 2-3_Node<Type> get_middle()
 	{
 		return this.link;
 	}

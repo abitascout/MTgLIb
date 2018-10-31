@@ -1,7 +1,7 @@
-public class List<Type>
+public class 2-3_tree<Type>
 {
 	
-	private Node<Type> root;
+	private 2-3_Node<Type> root;
 	// constructor
 	// empty list has a size of -1 and its position is at -1
 	public List()
@@ -10,7 +10,7 @@ public class List<Type>
 	}
 	// copy constructor
 	// clones the list l 
-	public List(List<Type> l)
+	public List(2-3_tree<Type> l)
 	{
 		Node<Type> n = l.root;
 		this.root = null;
