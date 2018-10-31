@@ -4,10 +4,12 @@ private String name, Type, CMC;
 private double Price;
 private boolean inStock;
 
-public Card(){
-	name = Type = CMC = null;
-	Price = 0.1;
-	inStock = false;
+public Card(String name,String cmc,String type, Double price){
+	this.setName(name);
+	this.setCmc(cmc);
+	this.setType(type);
+	this.setPrice(price);
+	inStock = true;
 	
 }
 public void setName(String n)
