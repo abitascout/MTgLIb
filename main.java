@@ -13,7 +13,7 @@ public class main {
 	}
 	public static void importFile()
 	{
-		File in = new File("input.txt");
+		File in = new File("Deck.txt");
 		try
 		{
 			Scanner FileReader = new Scanner(in);
