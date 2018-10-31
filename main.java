@@ -6,9 +6,7 @@ public class main {
 	{
 		
 		importFile();
-		Card q = new Card();
-		q.setCmc("1B");
-		q.setPrice(1.14);
+		Card q = new Card("adj;klf","1B","pussy",1.24);
 		System.out.println(q);
 	}
 	public static void importFile()
@@ -16,12 +14,13 @@ public class main {
 		File in = new File("Deck.txt");
 		try
 		{
-			Scanner FileReader = new Scanner(in).useDelimiter("\t");
+			Scanner FileReader = new Scanner(in).useDelimiter("\t|\r\n");
 			FileReader.nextLine();
-			System.out.println(FileReader.next());//name
-			System.out.println(FileReader.next());//cmc
-			System.out.println(FileReader.next());//type
-			System.out.println(FileReader.next());//price
+			System.out.println(FileReader.next()+" name");//name
+			System.out.println(FileReader.next()+" cmc");//cmc
+			System.out.println(FileReader.next()+" type");//type
+			System.out.println(FileReader.nextDouble()+" price");//price
+			FileReader.nextLine();
 			while(FileReader.hasNext())
 			{
 				System.out.println(FileReader.next());
