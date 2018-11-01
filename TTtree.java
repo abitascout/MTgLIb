@@ -16,6 +16,21 @@ public class TTtree<Type>
 		TTNode<Type> n = l.root;
 		this.root = null;
 	}
+	//go to root
+	public void Root()
+	{
+		this.curr = this.root;
+	}
+	//move left
+	public void Left()
+	{
+		this.curr = this.curr.get_leftLink();
+	}
+	//move right
+	public void Right()
+	{
+		this.curr = this.curr.get_rightLink();
+	}
 	
 	// this is far as I have gotten without doing som research
 	

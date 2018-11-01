@@ -10,7 +10,7 @@ public class TTNode<Type>
 		this.Llink = this.Rlink = null;
 	}
 	
-	// acccessor and mutator for the data 
+	// accessor and mutator for the data 
 	public void set_rightData(Type data)
 	{
 		this.Rdata = data;
