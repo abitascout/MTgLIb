@@ -7,6 +7,7 @@ public class main {
 		
 		importFile();
 		Card q = new Card("adj;klf","1B","pussy",1.24);
+		TTtree<Card> library = new TTtree<Card>();
 		System.out.println(q);
 	}
 	public static void importFile()
