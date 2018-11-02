@@ -21,6 +21,11 @@ public class TTtree<Type>
 	{
 		this.curr = this.root;
 	}
+	public void Parent()
+	{
+		Root();
+		
+	}
 	//move left
 	public void Left()
 	{
@@ -33,5 +38,16 @@ public class TTtree<Type>
 	}
 	
 	// this is far as I have gotten without doing som research
-	
+	public void add(Type x)
+	{
+		if (root == null)
+		{
+			root = new TTNode<Type>();
+			root.set_leftData(x);
+		}
+		else
+		{
+		}
+		}
+	}
 }

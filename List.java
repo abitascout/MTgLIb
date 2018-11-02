@@ -146,7 +146,6 @@ public class List<Type>
         }
         return -1;
     }
-
     // returns the value of the current element (or -1)
     public Type GetValue()
     {

@@ -54,6 +54,10 @@ public boolean getStock()
 {
 	return this.inStock;
 }
+public int compareTo(Card x)
+{
+	return Card.getName().compareTo(x.getName());
+}
 public String toString()
 {
 	String temp = this.name +"\t"+ this.Type +"\t"+ this.CMC +"\t$"+ this.Price +"\t"+ this.inStock;
