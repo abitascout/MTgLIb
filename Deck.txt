@@ -1,5 +1,5 @@
 Name	CMC    Type	price US Dollars	
-Yuriko, the Tiger's shadow	1UB	Lengendary_Creature	15.90
+Yuriko, the Tiger's Shadow	1UB	Lengendary_Creature	15.90
 Dimir Infiltrator	UB	Creature	0.20
 Flitterstep Eidolon	1U	Creature	0.21
 Invisible Staker	1U	Creature	1.29
