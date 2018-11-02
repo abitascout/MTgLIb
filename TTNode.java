@@ -7,7 +7,7 @@ public class TTNode<Type>
 	public TTNode()
 	{
 		this.Ldata = this.Rdata  = null;
-		this.Llink = this.Rlink = this.MLink = null;
+		this.Llink = this.Rlink = this.Mlink = null;
 	}
 	
 	// accessor and mutator for the data 
