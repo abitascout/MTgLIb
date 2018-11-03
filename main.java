@@ -1,8 +1,10 @@
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.io.PrintStream;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
 public class main {
 	public static void main (String args[])
 	{
@@ -41,21 +43,27 @@ public class main {
 	}
 	public static void exportFile()
 	{
-		// Create a PrintStream attached to a file named "output.txt"
+		try{// Create a PrintStream attached to a file named "output.txt"
 		// This will overwrite  the file if its already extis
 		File file = new File("output.txt");
-		PrintStream ps = new PrintStream(file);
-		// Buffer some data to write to the file (doesnt write till its flu
-		ps.print("Some test data");
+		FileWriter filewriter = new FileWriter(file);
+		BufferedWriter bufferwriter = new BufferedWriter(filewriter);
 		
-		// Flush all buffered data to the file
-		ps.flush();
-		
-		ps.println("data");
-		
-		// Close the file (by closing the PrintStream)
-		// also flushes any remainin buffered output
-		ps.close();
+		try(Writer writer = bufferwriter)
+		{
+			String contents =  "Magic the Gathering";
+			
+			writer.write(contents);
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
 		
 		
 	}
