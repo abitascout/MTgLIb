@@ -43,7 +43,8 @@ public class main {
 	{
 		// Create a PrintStream attached to a file named "output.txt"
 		// This will overwrite  the file if its already extis
-		PrintStream ps = new PrintStream("output.txt");
+		File file = new File("output.txt");
+		PrintStream ps = new PrintStream(file);
 		// Buffer some data to write to the file (doesnt write till its flu
 		ps.print("Some test data");
 		
