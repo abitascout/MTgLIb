@@ -6,12 +6,23 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 public class main {
+	//using linked lists to store cards due to 
+	public static List<Card> nameList = new List<Card>();
+	public static List<Card> typeList = new List<Card>();
 	public static void main (String args[])
 	{
-		
+		/*
+		List<Card> test = new List<Card>();
+		Card benis = new Card("Q","A","Creature",1.10,true);
+		test.InsertAfter(benis);
+		benis = new Card("A","Q","Creature",1.10,true);
+		test.InsertAfter(benis);
+		System.out.println(test);
+		test.insertSort();
+		System.out.println(test);*/
 		importFile();
-		Card q = new Card("adj;klf","1B","pussy",1.24);
-		TTtree<Card> library = new TTtree<Card>();
+		System.out.println(nameList);
+		Card q = new Card("adj;klf","1B","pussy",1.24,true);
 		System.out.println(q);
 		exportFile();
 	}
@@ -20,18 +31,19 @@ public class main {
 		File in = new File("Deck.txt");
 		try
 		{
+			@SuppressWarnings("resource")
 			Scanner FileReader = new Scanner(in).useDelimiter("\t|\r\n");
-			FileReader.nextLine();
-			System.out.println(FileReader.next()+" name");//name
-			System.out.println(FileReader.next()+" cmc");//cmc
-			System.out.println(FileReader.next()+" type");//type
-			System.out.println(FileReader.nextDouble()+" price");//price
 			FileReader.nextLine();
 			while(FileReader.hasNext())
 			{
-				System.out.println(FileReader.next());
-				FileReader.nextLine();
-				
+				String name = FileReader.next();
+				String cmc = FileReader.next();
+				String type = FileReader.next();
+				Double price = FileReader.nextDouble();
+				Card nameCard = new Card(name, cmc, type, price, true);
+				nameList.InsertAfter(nameCard);
+				Card typeCard = new Card(name, cmc, type, price, false);
+				typeList.InsertAfter(typeCard);
 			}
 			FileReader.close();
 		}
@@ -39,6 +51,14 @@ public class main {
 		{
 			System.out.println("Data File Missing.\nShutting down..");
 			System.exit(0);
+		}
+	}
+	public static String printNameList()
+	{
+		nameList.First();
+		while(true)
+		{
+			
 		}
 	}
 	public static void exportFile()
@@ -54,6 +74,7 @@ public class main {
 			String contents =  "Magic the Gathering";
 			
 			writer.write(contents);
+			writer.close();
 		}
 		catch(IOException e)
 		{
