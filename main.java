@@ -30,7 +30,7 @@ public class main {
 		nameList.insertSort();
 		//System.out.println(nameList+"\n"+nameList.GetSize());
 		printList(nameList);
-		
+		exportFile(printList(nameList));
 	}
 	public static void importFile()
 	{
@@ -74,29 +74,25 @@ public class main {
 			}
 			printer.Prev();
 		}
-		System.out.println(forwardStack);
 		return forwardStack+"";
 	}
+	//output text to file
 	public static void exportFile( String contents)
-
 	{
-		try{// Create a PrintStream attached to a file named "output.txt"
+		try
+		{// Create a PrintStream attached to a file named "output.txt"
 		// This will overwrite  the file if its already exists
-		File file = new File("output.txt");
-		FileWriter filewriter = new FileWriter(file);
-		BufferedWriter bufferwriter = new BufferedWriter(filewriter);
-		
-		try(Writer writer = bufferwriter)
-		{
-			
-			
-			writer.write(contents);
-			writer.close();
-		}
-		catch(IOException e)
-		{
-			e.printStackTrace();
-		}
+			Scanner breakdown = new Scanner(contents);
+			File file = new File("output.txt");
+			FileWriter filewriter = new FileWriter(file);
+			BufferedWriter bufferwriter = new BufferedWriter(filewriter);
+			while(breakdown.hasNextLine())
+			{
+				bufferwriter.write(breakdown.nextLine());
+				bufferwriter.newLine();
+			}
+			breakdown.close();
+			bufferwriter.close();
 		}
 		catch(IOException e)
 		{
