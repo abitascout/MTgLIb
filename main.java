@@ -62,23 +62,23 @@ public class main {
 		Scanner input = new Scanner(System.in);
 		while(true)
 		{
-			System.out.println("(1) Add Card\n (2) Remove Card\n (3) Search for a Card\n (4) Incase of fire\n (5) Quit\n")
+			System.out.println("(1) Add Card\n (2) Remove Card\n (3) Search for a Card\n (4) Incase of fire\n (5) Quit\n");
 			String choice = in.next();
 			switch(choice)
 			{
 				case "1":
 				addCard();
 				break;
-				case "2"
+				case "2":
 				removeCard();
 				break;
-				case "3"
+				case "3":
 				searchCard();
 				break;
-				case "4"
+				case "4":
 				fireDrill();
 				break;
-				case "5"
+				case "5":
 				exportFile(nameList);
 				System.exit(0);
 				break;
@@ -104,7 +104,7 @@ public class main {
 		return forwardStack+"";
 	}
 	//output text to file
-	public static void exportFile( String contents)
+	public  void exportFile( String contents)
 	{
 		try
 		{// Create a PrintStream attached to a file named "output.txt"
@@ -129,19 +129,19 @@ public class main {
 	}
 	public String addCard()
 	{
-		;
+		return null;
 	}
 	public String removeCard()
 	{
-		;
+		return null;
 	}
 	public String searchCard()
 	{
-		;
+		return null;
 	}
 	public String fireDrill()
 	{
-		;
+		return null;
 	}
 
 }
