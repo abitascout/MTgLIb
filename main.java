@@ -13,7 +13,7 @@ public class main {
 		Card q = new Card("adj;klf","1B","pussy",1.24);
 		TTtree<Card> library = new TTtree<Card>();
 		System.out.println(q);
-		exportFile();
+		
 	}
 	public static void importFile()
 	{
@@ -29,10 +29,12 @@ public class main {
 			FileReader.nextLine();
 			while(FileReader.hasNext())
 			{
+				String contents = FileReader.next();
 				System.out.println(FileReader.next());
 				FileReader.nextLine();
 				
 			}
+			exportFile(contents);
 			FileReader.close();
 		}
 		catch(FileNotFoundException e)
@@ -41,7 +43,7 @@ public class main {
 			System.exit(0);
 		}
 	}
-	public static void exportFile()
+	public static void exportFile( String contents)
 	{
 		try{// Create a PrintStream attached to a file named "output.txt"
 		// This will overwrite  the file if its already extis
@@ -51,7 +53,7 @@ public class main {
 		
 		try(Writer writer = bufferwriter)
 		{
-			String contents =  "Magic the Gathering";
+			
 			
 			writer.write(contents);
 		}
