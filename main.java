@@ -28,7 +28,7 @@ public class main {
 		importFile();
 		//System.out.println(nameList+"\n"+nameList.GetSize());
 		nameList.insertSort();
-		//System.out.println(nameList+"\n"+nameList.GetSize());
+		//System.out.println(nameList+"\n"+n+ameList.GetSize());
 		printList(nameList);
 		exportFile(printList(nameList));
 	}
@@ -57,6 +57,33 @@ public class main {
 		{
 			System.out.println("Data File Missing.\nShutting down..");
 			System.exit(0);
+		}
+		// Main Menu
+		Scanner input = new Scanner(System.in);
+		while(true)
+		{
+			System.out.println("(1) Add Card\n (2) Remove Card\n (3) Search for a Card\n (4) Incase of fire\n (5) Quit\n")
+			String choice = in.next();
+			switch(choice)
+			{
+				case "1":
+				addCard();
+				break;
+				case "2"
+				removeCard();
+				break;
+				case "3"
+				searchCard();
+				break;
+				case "4"
+				fireDrill();
+				break;
+				case "5"
+				exportFile(nameList);
+				System.exit(0);
+				break;
+				
+			}
 		}
 	}
 
@@ -99,6 +126,22 @@ public class main {
 			e.printStackTrace();
 		}
 		
+	}
+	public String addCard()
+	{
+		;
+	}
+	public String removeCard()
+	{
+		;
+	}
+	public String searchCard()
+	{
+		;
+	}
+	public String fireDrill()
+	{
+		;
 	}
 
 }
