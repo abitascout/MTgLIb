@@ -368,7 +368,28 @@ public class List<Type>
             returning.Last();
             return returning;
     }
-
+    public void insertSort()
+    {
+    	int n = this.GetSize();
+    	for (int i = 1; i<n; i++)
+    	{
+    		this.SetPos(i);
+    		String key = this.GetValue().toString();
+    		Type Keytype = this.GetValue();
+    		int j = i-1;
+    		this.SetPos(j);
+    		while(j>=0 && this.GetValue().toString().toLowerCase().compareTo(key.toLowerCase()) > 0)
+    		{
+    			this.SetPos(j); //makes sure to switch to next item upon return
+    			Type Temp = this.curr.getData();
+    			this.Next();
+    			this.Replace(Temp);
+    			j = j-1;
+    		}
+    		this.SetPos(j+1);
+    		this.Replace(Keytype);
+    	}
+    }
     // returns a string representation of the entire list (e.g., 1 2 3 4 5)
     // the string "NULL" should be returned for an empty list
     public String toString()

@@ -2,13 +2,14 @@ public class Card{
 
 private String name, Type, CMC;
 private double Price;
-private boolean inStock;
+private boolean inStock, typeFirst;
 
-public Card(String name,String cmc,String type, Double price){
+public Card(String name,String cmc,String type, Double price, boolean typeF){
 	this.setName(name);
 	this.setCmc(cmc);
 	this.setType(type);
 	this.setPrice(price);
+	this.typeFirst = typeF;
 	inStock = true;
 	
 }
@@ -54,17 +55,15 @@ public boolean getStock()
 {
 	return this.inStock;
 }
-public String compareType()
-{
-	return this.Type +"\t" + this.name + "\t" + this.CMC + "\t" + this.Price + "\t" + this.inStock;
-}
-public String compareName()
-{
-	return this.name +"\t"+ this.Type +"\t"+ this.CMC +"\t$"+ this.Price +"\t"+ this.inStock;
-}
 public String toString()
 {
-	String temp = this.name +"\t"+ this.Type +"\t"+ this.CMC +"\t$"+ this.Price +"\t"+ this.inStock;
-	return temp;
-}
+	if(this.typeFirst)
+	{
+		return this.name +"\t"+ this.Type +"\t"+ this.CMC +"\t$"+ this.Price +"\t"+ this.inStock;
+	}
+	else
+	{
+		return this.Type +"\t"+ this.name +"\t"+ this.CMC +"\t$"+ this.Price +"\t"+ this.inStock;
+	}
+	}
 }
