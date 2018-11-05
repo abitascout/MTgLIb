@@ -1,3 +1,8 @@
+/*
+Authors: Matthew Gerber and Robert Morton
+Version: a.07
+Date: 11/5/2018
+*/
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -21,9 +26,10 @@ public class main {
 		test.insertSort();
 		System.out.println(test);*/
 		importFile();
-		System.out.println(nameList+"\n"+nameList.GetSize());
+		//System.out.println(nameList+"\n"+nameList.GetSize());
 		nameList.insertSort();
-		System.out.println(nameList+"\n"+nameList.GetSize());
+		//System.out.println(nameList+"\n"+nameList.GetSize());
+		printList(nameList);
 		
 	}
 	public static void importFile()
@@ -54,14 +60,22 @@ public class main {
 		}
 	}
 
-
-	public static String printNameList()
+	//A stack will be used to print out the list, this is due to the nature of a stack already being in list format.
+	//it will also ensure that we have no chance of printing out cards that are not available
+	public static String printList(List<Card> printer)
 	{
-		nameList.First();
-		while(true)
+		printer.Last();
+		Stack<Card> forwardStack = new Stack<Card>();
+		for (int scroller = 0; scroller < printer.GetSize(); scroller++)
 		{
-			
+			if(printer.GetValue().getStock())
+			{
+				forwardStack.Push(printer.GetValue());
+			}
+			printer.Prev();
 		}
+		System.out.println(forwardStack);
+		return forwardStack+"";
 	}
 	public static void exportFile( String contents)
 
@@ -88,7 +102,6 @@ public class main {
 		{
 			e.printStackTrace();
 		}
-		
 		
 	}
 

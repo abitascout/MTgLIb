@@ -2,9 +2,11 @@
 /**
  * Write a description of class Queue here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Matthew Gerber
+ * @date 10/18/2018
  */
+//suppresswarnings so IDE doesn't complain
+@SuppressWarnings("all")
 public class Queue<Type> extends List
 {
     // instance variables - replace the example below with your own
@@ -17,6 +19,18 @@ public class Queue<Type> extends List
     {
         super.First();
         super.Remove();
+    }
+    public String toString()
+    {
+    	super.First();
+    	String output = "";
+    	for(int i = 0; i < super.GetSize(); i++)
+    	{
+    		output += super.GetValue();
+    		super.Next();
+    		
+    	}
+    	return output;
     }
 
 }

@@ -10,7 +10,7 @@ public Card(String name,String cmc,String type, Double price, boolean typeF){
 	this.setType(type);
 	this.setPrice(price);
 	this.typeFirst = typeF;
-	inStock = true;
+	this.inStock = true;
 	
 }
 public void setName(String n)
