@@ -36,12 +36,6 @@ public class main {
 			FileReader.nextLine();
 			while(FileReader.hasNext())
 			{
-<<<<<<< HEAD
-				String contents = FileReader.next();
-				System.out.println(FileReader.next());
-				FileReader.nextLine();
-				
-=======
 				String name = FileReader.next();
 				String cmc = FileReader.next();
 				String type = FileReader.next();
@@ -50,7 +44,6 @@ public class main {
 				nameList.InsertAfter(nameCard);
 				Card typeCard = new Card(name, cmc, type, price, false);
 				typeList.InsertAfter(typeCard);
->>>>>>> 207ab0e7af375ac9cb4b064dfaba320cf5678ab9
 			}
 			exportFile(contents);
 			FileReader.close();
@@ -61,9 +54,8 @@ public class main {
 			System.exit(0);
 		}
 	}
-<<<<<<< HEAD
-	public static void exportFile( String contents)
-=======
+
+
 	public static String printNameList()
 	{
 		nameList.First();
@@ -72,8 +64,8 @@ public class main {
 			
 		}
 	}
-	public static void exportFile()
->>>>>>> 207ab0e7af375ac9cb4b064dfaba320cf5678ab9
+	public static void exportFile( String contents)
+
 	{
 		try{// Create a PrintStream attached to a file named "output.txt"
 		// This will overwrite  the file if its already extis
