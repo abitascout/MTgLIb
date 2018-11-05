@@ -21,9 +21,9 @@ public class main {
 		test.insertSort();
 		System.out.println(test);*/
 		importFile();
-		System.out.println(nameList);
-		Card q = new Card("adj;klf","1B","pussy",1.24,true);
-		System.out.println(q);
+		System.out.println(nameList+"\n"+nameList.GetSize());
+		nameList.insertSort();
+		System.out.println(nameList+"\n"+nameList.GetSize());
 		
 	}
 	public static void importFile()
@@ -45,7 +45,6 @@ public class main {
 				Card typeCard = new Card(name, cmc, type, price, false);
 				typeList.InsertAfter(typeCard);
 			}
-			exportFile(contents);
 			FileReader.close();
 		}
 		catch(FileNotFoundException e)
@@ -68,7 +67,7 @@ public class main {
 
 	{
 		try{// Create a PrintStream attached to a file named "output.txt"
-		// This will overwrite  the file if its already extis
+		// This will overwrite  the file if its already exists
 		File file = new File("output.txt");
 		FileWriter filewriter = new FileWriter(file);
 		BufferedWriter bufferwriter = new BufferedWriter(filewriter);

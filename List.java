@@ -10,7 +10,7 @@ public class List<Type>
     // We don't actually have to set a max size with linked lists
     // But it is a good idea.
     // Just picture an infinite loop adding to the list! :O
-    public static final int MAX_SIZE = 50;
+    public static final int MAX_SIZE = 200;
 
     private Node<Type> head;
     private Node<Type> tail;
