@@ -37,7 +37,6 @@ public class main {
 		File in = new File("Deck.txt");
 		try
 		{
-			@SuppressWarnings("resource")
 			Scanner FileReader = new Scanner(in).useDelimiter("\t|\r\n");
 			FileReader.nextLine();
 			while(FileReader.hasNext())
@@ -53,6 +52,7 @@ public class main {
 			}
 			FileReader.close();
 		}
+		
 		catch(FileNotFoundException e)
 		{
 			System.out.println("Data File Missing.\nShutting down..");
