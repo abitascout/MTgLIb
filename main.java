@@ -63,7 +63,7 @@ public class main {
 		while(true)
 		{
 			System.out.println("(1) Add Card\n (2) Remove Card\n (3) Search for a Card\n (4) Incase of fire\n (5) Quit\n");
-			String choice = in.next();
+			String choice = input.next();
 			switch(choice)
 			{
 				case "1":
@@ -79,7 +79,7 @@ public class main {
 				fireDrill();
 				break;
 				case "5":
-				exportFile(nameList);
+				exportFile(printList(nameList));
 				System.exit(0);
 				break;
 				
@@ -104,7 +104,7 @@ public class main {
 		return forwardStack+"";
 	}
 	//output text to file
-	public  void exportFile( String contents)
+	public static void exportFile( String contents)
 	{
 		try
 		{// Create a PrintStream attached to a file named "output.txt"
@@ -125,21 +125,20 @@ public class main {
 		{
 			e.printStackTrace();
 		}
-		
 	}
-	public String addCard()
+	public static String addCard()
 	{
 		return null;
 	}
-	public String removeCard()
+	public static String removeCard()
 	{
 		return null;
 	}
-	public String searchCard()
+	public static String searchCard()
 	{
 		return null;
 	}
-	public String fireDrill()
+	public static String fireDrill()
 	{
 		return null;
 	}
