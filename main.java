@@ -30,7 +30,34 @@ public class main {
 		nameList.insertSort();
 		//System.out.println(nameList+"\n"+n+ameList.GetSize());
 		printList(nameList);
-		exportFile(printList(nameList));
+		// Main Menu
+				Scanner input = new Scanner(System.in);
+		while(true)
+		{
+			System.out.println("(1) Add Card\n (2) Remove Card\n (3) Search for a Card\n (4) Incase of fire\n (5) Quit\n");
+			String choice = input.next();
+			switch(choice)
+			{
+				case "1":
+				addCard();
+				break;
+				case "2":
+				removeCard();
+				break;
+				case "3":
+				System.out.println(searchCard());
+				break;
+				case "4":
+				fireDrill();
+				break;
+				case "5":
+				exportFile(printList(nameList));
+				System.exit(0);
+				break;
+						
+			}
+		}
+		//exportFile(printList(nameList));
 	}
 	public static void importFile()
 	{
@@ -58,35 +85,7 @@ public class main {
 			System.out.println("Data File Missing.\nShutting down..");
 			System.exit(0);
 		}
-		// Main Menu
-		Scanner input = new Scanner(System.in);
-		while(true)
-		{
-			System.out.println("(1) Add Card\n (2) Remove Card\n (3) Search for a Card\n (4) Incase of fire\n (5) Quit\n");
-			String choice = input.next();
-			switch(choice)
-			{
-				case "1":
-				addCard();
-				break;
-				case "2":
-				removeCard();
-				break;
-				case "3":
-				searchCard();
-				break;
-				case "4":
-				fireDrill();
-				break;
-				case "5":
-				exportFile(printList(nameList));
-				System.exit(0);
-				break;
-				
-			}
-		}
 	}
-
 	//A stack will be used to print out the list, this is due to the nature of a stack already being in list format.
 	//it will also ensure that we have no chance of printing out cards that are not available
 	public static String printList(List<Card> printer)
@@ -126,6 +125,29 @@ public class main {
 			e.printStackTrace();
 		}
 	}
+	public static Card binarySearch(List<Card> inList, String search)
+	{
+		inList.First();
+		int l = 0, r = inList.GetSize() - 1;
+		while(l <= r)
+		{
+			int m = l + (r-1)/2;
+			inList.SetPos(m);
+			if(inList.GetValue().getName().compareTo(search) == 0)
+			{
+				return inList.GetValue();
+			}
+			if(inList.GetValue().getName().compareTo(search) < 0)
+			{
+				l = m + 1;	
+			}
+			else
+			{
+				r = m - 1;
+			}
+		}
+		return new Card("Card Not Found.","","",0.0,false);
+	}
 	public static String addCard()
 	{
 		return null;
@@ -136,11 +158,11 @@ public class main {
 	}
 	public static String searchCard()
 	{
-		return null;
+		return binarySearch(nameList, "Rosie").toString();
 	}
 	public static String fireDrill()
 	{
 		return null;
 	}
-
+	
 }
