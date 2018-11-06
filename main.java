@@ -28,7 +28,7 @@ public class main {
 		importFile();
 		//System.out.println(nameList+"\n"+nameList.GetSize());
 		nameList.insertSort();
-		//System.out.println(nameList+"\n"+nameList.GetSize());
+		//System.out.println(nameList+"\n"+n+ameList.GetSize());
 		printList(nameList);
 		exportFile(printList(nameList));
 	}
@@ -58,6 +58,33 @@ public class main {
 			System.out.println("Data File Missing.\nShutting down..");
 			System.exit(0);
 		}
+		// Main Menu
+		Scanner input = new Scanner(System.in);
+		while(true)
+		{
+			System.out.println("(1) Add Card\n (2) Remove Card\n (3) Search for a Card\n (4) Incase of fire\n (5) Quit\n");
+			String choice = in.next();
+			switch(choice)
+			{
+				case "1":
+				addCard();
+				break;
+				case "2":
+				removeCard();
+				break;
+				case "3":
+				searchCard();
+				break;
+				case "4":
+				fireDrill();
+				break;
+				case "5":
+				exportFile(nameList);
+				System.exit(0);
+				break;
+				
+			}
+		}
 	}
 
 	//A stack will be used to print out the list, this is due to the nature of a stack already being in list format.
@@ -77,7 +104,7 @@ public class main {
 		return forwardStack+"";
 	}
 	//output text to file
-	public static void exportFile( String contents)
+	public  void exportFile( String contents)
 	{
 		try
 		{// Create a PrintStream attached to a file named "output.txt"
@@ -99,6 +126,22 @@ public class main {
 			e.printStackTrace();
 		}
 		
+	}
+	public String addCard()
+	{
+		return null;
+	}
+	public String removeCard()
+	{
+		return null;
+	}
+	public String searchCard()
+	{
+		return null;
+	}
+	public String fireDrill()
+	{
+		return null;
 	}
 
 }
