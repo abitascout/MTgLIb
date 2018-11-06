@@ -39,21 +39,21 @@ public class main {
 			switch(choice)
 			{
 				case "1":
-				addCard();
-				break;
+					addCard();
+					break;
 				case "2":
-				removeCard();
-				break;
+					removeCard();
+					break;
 				case "3":
-				System.out.println(searchCard());
-				break;
+					System.out.println(searchCard(input.next(), true));
+					break;
 				case "4":
-				fireDrill();
-				break;
+					fireDrill();
+					break;
 				case "5":
-				exportFile(printList(nameList));
-				System.exit(0);
-				break;
+					exportFile(printList(nameList));
+					System.exit(0);
+					break;
 						
 			}
 		}
@@ -125,7 +125,7 @@ public class main {
 			e.printStackTrace();
 		}
 	}
-	public static Card binarySearch(List<Card> inList, String search)
+	public static String binarySearch(List<Card> inList, String search)
 	{
 		inList.First();
 		int l = 0, r = inList.GetSize() - 1;
@@ -135,7 +135,7 @@ public class main {
 			inList.SetPos(m);
 			if(inList.GetValue().getName().compareTo(search) == 0)
 			{
-				return inList.GetValue();
+				return inList.GetValue().toString();
 			}
 			if(inList.GetValue().getName().compareTo(search) < 0)
 			{
@@ -146,7 +146,7 @@ public class main {
 				r = m - 1;
 			}
 		}
-		return new Card("Card Not Found.","","",0.0,false);
+		return "Card is not in list, or out of stock.";
 	}
 	public static String addCard()
 	{
@@ -156,7 +156,7 @@ public class main {
 	{
 		return null;
 	}
-	public static String searchCard()
+	public static String searchCard(String input,Boolean onlyFinding)
 	{
 		return binarySearch(nameList, "Rosie").toString();
 	}
