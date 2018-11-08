@@ -111,7 +111,7 @@ public class main {
 		{// Create a PrintStream attached to a file named "output.txt"
 		// This will overwrite  the file if its already exists
 			Scanner breakdown = new Scanner(contents);
-			File file = new File("output.txt");
+			File file = new File("Deck.txt");
 			FileWriter filewriter = new FileWriter(file);
 			BufferedWriter bufferwriter = new BufferedWriter(filewriter);
 			while(breakdown.hasNextLine())
@@ -194,10 +194,12 @@ public class main {
 		String cname = read.nextLine();
 		nameList.SetPos(binarySearch(nameList, cname));
 		nameList.GetValue().setStock(false);
+
 	}
 	public static String searchCard(String input,Boolean onlyFinding)
 	{
 		return "pussy";
+		
 	}
 	public static String fireDrill()
 	{
