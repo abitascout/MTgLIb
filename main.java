@@ -34,12 +34,12 @@ public class main {
 		Scanner input = new Scanner(System.in);
 		while(true)
 		{
-			System.out.println("(1) Display List\n (2) Add Card\n (3) Remove Card\n (4) Search for a Card\n (5) Incase of fire\n (6) Quit\n");
+			System.out.println(" (1) Display List\n (2) Add Card\n (3) Remove Card\n (4) Search for a Card\n (5) Incase of fire\n (6) Quit\n");
 			String choice = input.next();
 			switch(choice)
 			{
 				case "1":
-					displayList(nameList);
+					displayList();
 					break;
 				case "2":
 					addCard();
@@ -155,46 +155,51 @@ public class main {
 	{
 		return printList(nameList);
 	}
-	public static  String addCard()
+	public static void addCard()
 	{
-		count = true;
+		boolean count = true;
 		while (count)
 		{
 			Scanner reader = new Scanner(System.in);
 			System.out.println("What is the name of the card?");
 			String Title = reader.next();
 			System.out.println("What is the Converted Mana Cost of the card?\n U is blue B is black G is green R is red W is white.");
-			String.mana = reader.next();
+			String mana = reader.next();
 			System.out.println("What is the type of the card? Make sure to meantion if it is legendary.");
-			String.thing = reader.next();
+			String thing = reader.next();
 			System.out.println("What is the price of the card?");
-			int money = reader.nextInt();
+			Double money = reader.nextDouble();
 			Card add = new Card(Title, mana, thing, money, true);
 			nameList.InsertAfter(add);
 			Card k = new Card(Title, mana, thing, money, false);
 			typeList.InsertAfter(k);
 			System.out.println("Do you wish to continue?");
 			String answer = reader.next();
-			if (answer.equals(true) || answer.equals(True))
+			if (answer.equals("Yes") || answer.equals("yes"))
 			{
-				reader.close();
-				break;
+				;
 			}
-			else
+			else if (answer.equals("no") || answer.equals("No"))
 			{ 
 				count = false;
 				reader.close();
-				break;
+				
 			}
 			
+			
 		}
-		return "all done";
+		
 		
 		
 	}
-	public static String removeCard()
+	public static void removeCard()
 	{
-		return null;
+		Scanner read = new Scanner(System.in);
+		System.out.println("What is the name of the card that you wanna to remove?");
+		String cname = read.next();
+		binarySearch(nameList, cname).toString();
+		nameList.Remove();
+		
 	}
 	public static String searchCard(String input,Boolean onlyFinding)
 	{
