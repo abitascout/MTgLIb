@@ -155,9 +155,42 @@ public class main {
 	{
 		return printList(nameList);
 	}
-	public static String addCard()
+	public static  String addCard()
 	{
-		return null;
+		count = true;
+		while (count)
+		{
+			Scanner reader = new Scanner(System.in);
+			System.out.println("What is the name of the card?");
+			String Title = reader.next();
+			System.out.println("What is the Converted Mana Cost of the card?\n U is blue B is black G is green R is red W is white.");
+			String.mana = reader.next();
+			System.out.println("What is the type of the card? Make sure to meantion if it is legendary.");
+			String.thing = reader.next();
+			System.out.println("What is the price of the card?");
+			int money = reader.nextInt();
+			Card add = new Card(Title, mana, thing, money, true);
+			nameList.InsertAfter(add);
+			Card k = new Card(Title, mana, thing, money, false);
+			typeList.InsertAfter(k);
+			System.out.println("Do you wish to continue?");
+			String answer = reader.next();
+			if (answer.equals(true) || answer.equals(True))
+			{
+				reader.close();
+				break;
+			}
+			else
+			{ 
+				count = false;
+				reader.close();
+				break;
+			}
+			
+		}
+		return "all done";
+		
+		
 	}
 	public static String removeCard()
 	{
