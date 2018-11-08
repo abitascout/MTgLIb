@@ -9,32 +9,19 @@ import java.io.FileNotFoundException;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.Writer;
 public class main {
 	//using linked lists to store cards due to 
 	public static List<Card> nameList = new List<Card>();
 	public static List<Card> typeList = new List<Card>();
 	public static void main (String args[])
 	{
-		/*
-		List<Card> test = new List<Card>();
-		Card benis = new Card("Q","A","Creature",1.10,true);
-		test.InsertAfter(benis);
-		benis = new Card("A","Q","Creature",1.10,true);
-		test.InsertAfter(benis);
-		System.out.println(test);
-		test.insertSort();
-		System.out.println(test);*/
+		//import data from file Deck.txt
 		importFile();
-		//System.out.println(nameList+"\n"+nameList.GetSize());
-		nameList.insertSort();
-		//System.out.println(nameList+"\n"+n+ameList.GetSize());
-		printList(nameList);
 		// Main Menu
 		Scanner input = new Scanner(System.in);
 		while(true)
 		{
-			System.out.println(" (1) Display List\n (2) Add Card\n (3) Remove Card\n (4) Search for a Card\n (5) Incase of fire\n (6) Quit\n");
+			System.out.println(" (1) Display List\n (2) Add Card\n (3) Sell Card\n (4) Search for a Card\n (5) Incase of fire\n (6) Quit\n");
 			String choice = input.next();
 			switch(choice)
 			{
@@ -46,7 +33,7 @@ public class main {
 					addCard();
 					break;
 				case "3":
-					System.out.println(searchCard(input.next(), true)); //return only do not edit list
+					//System.out.println(searchCard(input.next(), true)); //return only do not edit list
 					removeCard();
 					break;
 				case "4":
@@ -56,8 +43,11 @@ public class main {
 					fireDrill();
 					break;
 				case "6":
-					exportFile(printList(nameList));
+					exportFile(printList(nameList,true));
 					System.exit(0);
+					break;
+				default:
+					System.out.println("That is not a command");
 					break;
 						
 			}
@@ -84,6 +74,8 @@ public class main {
 				typeList.InsertAfter(typeCard);
 			}
 			FileReader.close();
+			nameList.insertSort();
+			typeList.insertSort();
 		}
 		
 		catch(FileNotFoundException e)
@@ -94,13 +86,17 @@ public class main {
 	}
 	//A stack will be used to print out the list, this is due to the nature of a stack already being in list format.
 	//it will also ensure that we have no chance of printing out cards that are not available
-	public static String printList(List<Card> printer)
+	public static String printList(List<Card> printer, boolean showAll)
 	{
 		printer.Last();
 		Stack<String> forwardStack = new Stack<String>();
 		for (int scroller = 0; scroller < printer.GetSize(); scroller++)
 		{
-			if(printer.GetValue().getStock())
+			if(!showAll && printer.GetValue().getStock())
+			{
+				forwardStack.Push(printer.GetValue().printCard());
+			}
+			else
 			{
 				forwardStack.Push(printer.GetValue().printCard());
 			}
@@ -131,17 +127,17 @@ public class main {
 			e.printStackTrace();
 		}
 	}
-	public static String binarySearch(List<Card> inList, String search)
+	public static int binarySearch(List<Card> inList, String search)
 	{
 		inList.First();
 		int l = 0, r = inList.GetSize() - 1;
 		while(l <= r)
 		{
-			int m = l + (r-1)/2;
+			int m = (l + (r-1))/2;
 			inList.SetPos(m);
 			if(inList.GetValue().getName().compareTo(search) == 0)
 			{
-				return inList.GetValue().toString();
+				return inList.GetPos();
 			}
 			if(inList.GetValue().getName().compareTo(search) < 0)
 			{
@@ -152,11 +148,11 @@ public class main {
 				r = m - 1;
 			}
 		}
-		return "Card is not in list, or out of stock.";
+		return -1;
 	}
 	public static String displayList()
 	{
-		return printList(nameList);
+		return printList(nameList,false);
 	}
 	//a Queue will be used to hold all cards that are to be added to lists, this way user input is fast and the computer
 	//will deal with adding new cards after the user has finished adding new cards
@@ -178,37 +174,30 @@ public class main {
 			nameList.InsertAfter(add);
 			Card k = new Card(Title, mana, thing, money, false, true);
 			typeList.InsertAfter(k);
-			System.out.println("Do you wish to continue?");
+			System.out.println("Do you wish to continue? y/n");
 			String answer = reader.next();
-			if (answer.equals("Yes") || answer.equals("yes"))
+			if (answer.toLowerCase().equals("yes") || answer.toLowerCase().equals("y"))
 			{
 				;
 			}
-			else if (answer.equals("no") || answer.equals("No"))
+			else if (answer.toLowerCase().equals("no") || answer.toLowerCase().equals("n"))
 			{ 
 				count = false;
-				reader.close();
-				
-			}
-			
-			
+				reader.close();	
+			}	
 		}
-		
-		
-		
 	}
 	public static void removeCard()
 	{
 		Scanner read = new Scanner(System.in);
-		System.out.println("What is the name of the card that you wanna to remove?");
-		String cname = read.next();
-		binarySearch(nameList, cname).toString();
-		nameList.Remove();
-		
+		System.out.println("What is the name of the card that you want to sell?");
+		String cname = read.nextLine();
+		nameList.SetPos(binarySearch(nameList, cname));
+		nameList.GetValue().setStock(false);
 	}
 	public static String searchCard(String input,Boolean onlyFinding)
 	{
-		return binarySearch(nameList, "Rosie").toString();
+		return "pussy";
 	}
 	public static String fireDrill()
 	{

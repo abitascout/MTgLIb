@@ -63,11 +63,11 @@ public String toString()
 {
 	if(this.typeFirst)
 	{
-		return this.name.toLowerCase().charAt(0)+"";
+		return this.name;
 	}
 	else
 	{
-		return this.Type.toLowerCase().charAt(0)+"";
+		return this.Type;
 	}
 }
 }
