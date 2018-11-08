@@ -31,26 +31,29 @@ public class main {
 		//System.out.println(nameList+"\n"+n+ameList.GetSize());
 		printList(nameList);
 		// Main Menu
-				Scanner input = new Scanner(System.in);
+		Scanner input = new Scanner(System.in);
 		while(true)
 		{
-			System.out.println("(1) Add Card\n (2) Remove Card\n (3) Search for a Card\n (4) Incase of fire\n (5) Quit\n");
+			System.out.println("(1) Display List\n (2) Add Card\n (3) Remove Card\n (4) Search for a Card\n (5) Incase of fire\n (6) Quit\n");
 			String choice = input.next();
 			switch(choice)
 			{
 				case "1":
-					addCard();
+					displayList(nameList);
 					break;
 				case "2":
-					removeCard();
+					addCard();
 					break;
 				case "3":
-					System.out.println(searchCard(input.next(), true));
+					removeCard();
 					break;
 				case "4":
-					fireDrill();
+					System.out.println(searchCard(input.next(), true));
 					break;
 				case "5":
+					fireDrill();
+					break;
+				case "6":
 					exportFile(printList(nameList));
 					System.exit(0);
 					break;
@@ -147,6 +150,10 @@ public class main {
 			}
 		}
 		return "Card is not in list, or out of stock.";
+	}
+	public static String displayList()
+	{
+		return printList(nameList);
 	}
 	public static String addCard()
 	{
