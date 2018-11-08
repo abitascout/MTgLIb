@@ -45,7 +45,7 @@ public class main {
 					removeCard();
 					break;
 				case "3":
-					System.out.println(searchCard(input.next(), true));
+					System.out.println(searchCard(input.next(), true)); //return only do not edit list
 					break;
 				case "4":
 					fireDrill();
