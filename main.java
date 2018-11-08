@@ -39,17 +39,15 @@ public class main {
 			switch(choice)
 			{
 				case "1":
-					displayList();
+					System.out.println("Name\tType\tCMC\tPrice\tInStock\n__________________________________________________");
+					System.out.println(displayList());
 					break;
 				case "2":
 					addCard();
 					break;
 				case "3":
-<<<<<<< HEAD
 					System.out.println(searchCard(input.next(), true)); //return only do not edit list
-=======
 					removeCard();
->>>>>>> 8deb4919c9a3efe86f8423afeddc265b226ee559
 					break;
 				case "4":
 					System.out.println(searchCard(input.next(), true));
@@ -79,9 +77,10 @@ public class main {
 				String cmc = FileReader.next();
 				String type = FileReader.next();
 				Double price = FileReader.nextDouble();
-				Card nameCard = new Card(name, cmc, type, price, true);
+				Boolean available = FileReader.nextBoolean();
+				Card nameCard = new Card(name, cmc, type, price, true, available);
 				nameList.InsertAfter(nameCard);
-				Card typeCard = new Card(name, cmc, type, price, false);
+				Card typeCard = new Card(name, cmc, type, price, false, available);
 				typeList.InsertAfter(typeCard);
 			}
 			FileReader.close();
@@ -98,12 +97,12 @@ public class main {
 	public static String printList(List<Card> printer)
 	{
 		printer.Last();
-		Stack<Card> forwardStack = new Stack<Card>();
+		Stack<String> forwardStack = new Stack<String>();
 		for (int scroller = 0; scroller < printer.GetSize(); scroller++)
 		{
 			if(printer.GetValue().getStock())
 			{
-				forwardStack.Push(printer.GetValue());
+				forwardStack.Push(printer.GetValue().printCard());
 			}
 			printer.Prev();
 		}
@@ -159,6 +158,8 @@ public class main {
 	{
 		return printList(nameList);
 	}
+	//a Queue will be used to hold all cards that are to be added to lists, this way user input is fast and the computer
+	//will deal with adding new cards after the user has finished adding new cards
 	public static void addCard()
 	{
 		boolean count = true;
@@ -170,12 +171,12 @@ public class main {
 			System.out.println("What is the Converted Mana Cost of the card?\n U is blue B is black G is green R is red W is white.");
 			String mana = reader.next();
 			System.out.println("What is the type of the card? Make sure to meantion if it is legendary.");
-			String thing = reader.next();
+			String thing = reader.nextLine();
 			System.out.println("What is the price of the card?");
 			Double money = reader.nextDouble();
-			Card add = new Card(Title, mana, thing, money, true);
+			Card add = new Card(Title, mana, thing, money, true, true);
 			nameList.InsertAfter(add);
-			Card k = new Card(Title, mana, thing, money, false);
+			Card k = new Card(Title, mana, thing, money, false, true);
 			typeList.InsertAfter(k);
 			System.out.println("Do you wish to continue?");
 			String answer = reader.next();

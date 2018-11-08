@@ -1,71 +1,71 @@
 Name	CMC    Type	price US Dollars	
-Yuriko, the Tiger's Shadow	1UB	Lengendary_Creature	15.90
-Dimir Infiltrator	UB	Creature	0.20
-Flitterstep Eidolon	1U	Creature	0.21
-Invisible Staker	1U	Creature	1.29
-Tetsuko Umezawa, Fugitive	1U	Legendary_Creature	0.34
-Thalakos Seer	UU	Creature	0.23
-Dauthi Trapper	2B	Creature	0.26
-Marang River Prowler	2U	Creature	0.23
-Walker of Secret Ways	2U	Creature	0.39
-Keymaster Rouge	3U	Creature	0.15
-Lu Xun, Scholar General	2UU	Legendary_Creature	0.37
-Ninja of the Deep Hours	3U	Creature	0.99
-Ravenous Chupacabra	2BB	Creature	0.76
-Sakahima's Student	2UU	Creature	22.85
-Storm Sculptor	3U	Creature	0.14
-Higure, the Still Wind	3UU	Creature	2.68
-Throat Slitter	4B	Creature	1.59
-Ink-Eyes, Servant of Oni	4BB	Legendary_Creature	7.20
-Silent-Blade Oni	3UUBB	Legendary_Creature	1.42
-Brainstorm	U	Instant	0.65
-Ponder	U	Sorcery	2.27
-Arcane Denial	1U	Instant	0.42
-Counterspell	UU	Instant	1.00
-Cyclonic Rift	1U	Instant	15.00
-Capsize	1UU	Instant	1.43
-Read the Bones	2B	Sorcery	0.17
-Ancient Craving	3B	Sorcery	0.24
-Syphon Mind	3B	Sorcery	0.20
-Mystic Confluence	3BB	Instant	3.12
-Temporal Mastery	5UU	Sorcery	15.42
-Time Warp	3UU	Sorcery	13.95
-Deadly Tempest	4BB	Sorcery	1.73
-Karn's Temporal Sundering	4UU	Legendary_Sorcery	0.57
-Walk the Aeons	4UU	Sorcery	5.82
-Part the Waterviel	4UU	Sorcery	1.63
-Beacon of Tomorrows	6UU	Sorcery	1.60
-Treasure Cruise	7U	Sorcery	0.18
-Dig through Time	6UU	Instant	1.46
-In Garruk's Wake	7BB	Sorcery	0.70
-Temporal Trespass	8UUU	Sorcery	2.36
-Tormod's Crypt	0	Artifact	0.37
-Sensei's Divining Top	1	Artifact	22.00
-Shuriken	1	Artifact	0.31
-Sol Ring	1	Artifact	3.05
-Dimir Signet	2	Artifact	1.37
-Fellwar Stone	2	Artifact	1.08
-Mind Stone	2	Artifact	0.42
-Talisman of Dominace	2	Artifact	1.35
-Thought Vessel	2	Artifact	6.70
-Commander's Sphere	3	Artifact	0.99
-Crystal Shard	3	Artifact	1.09
-Darkstell Ingot	3	Artifact	0.41
-Dragon Mask	3	Artifact	0.24
-Worn PowerStone	3	Artifact	0.48
-Erratic Portal	4	Artifact	3.02
-Nevinyrral's Disk	4	Artifact	1.24
-Thran Dynamo	4	Artifact	5.19
-Phyrexian Arena	1BB	Enchanment	8.59
-Rhystic Study	2B	Enchanment	14.95
-Arcane Adaptation	2U	Enchanment	0.63
-Coastal Piracy	2UU	Enchanment	4.20
-Island	0	Basic_Land	0.00
-Swamp	0	Basic_Land	0.00
-Command Tower	0	Land	1.40
-Dimir Aqueduct	0	Land	0.76
-Bojuka Bog	0	Land	1.86
-Choked Estuary	0	Land	1.44
-Dismal Backwater	0	Land	0.17
-Temple of the False God	0	Land	0.59
-Temple of Deceit	0	Land	2.38
+Yuriko, the Tiger's Shadow	1UB	Lengendary_Creature	15.90	true
+Dimir Infiltrator	UB	Creature	0.20	true
+Flitterstep Eidolon	1U	Creature	0.21	true
+Invisible Staker	1U	Creature	1.29	true
+Tetsuko Umezawa, Fugitive	1U	Legendary_Creature	0.34	true
+Thalakos Seer	UU	Creature	0.23	true
+Dauthi Trapper	2B	Creature	0.26	true
+Marang River Prowler	2U	Creature	0.23	true
+Walker of Secret Ways	2U	Creature	0.39	true
+Keymaster Rouge	3U	Creature	0.15	true
+Lu Xun, Scholar General	2UU	Legendary_Creature	0.37	true
+Ninja of the Deep Hours	3U	Creature	0.99	true
+Ravenous Chupacabra	2BB	Creature	0.76	true
+Sakahima's Student	2UU	Creature	22.85	true
+Storm Sculptor	3U	Creature	0.14	true
+Higure, the Still Wind	3UU	Creature	2.68	true
+Throat Slitter	4B	Creature	1.59	true
+Ink-Eyes, Servant of Oni	4BB	Legendary_Creature	7.20	true
+Silent-Blade Oni	3UUBB	Legendary_Creature	1.42	true
+Brainstorm	U	Instant	0.65	true
+Ponder	U	Sorcery	2.27	true
+Arcane Denial	1U	Instant	0.42	true
+Counterspell	UU	Instant	1.00	true
+Cyclonic Rift	1U	Instant	15.00	true
+Capsize	1UU	Instant	1.43	true
+Read the Bones	2B	Sorcery	0.17	true
+Ancient Craving	3B	Sorcery	0.24	true
+Syphon Mind	3B	Sorcery	0.20	true
+Mystic Confluence	3BB	Instant	3.12	true
+Temporal Mastery	5UU	Sorcery	15.42	true
+Time Warp	3UU	Sorcery	13.95	true
+Deadly Tempest	4BB	Sorcery	1.73	true
+Karn's Temporal Sundering	4UU	Legendary_Sorcery	0.57	true
+Walk the Aeons	4UU	Sorcery	5.82	true
+Part the Waterviel	4UU	Sorcery	1.63	true
+Beacon of Tomorrows	6UU	Sorcery	1.60	true
+Treasure Cruise	7U	Sorcery	0.18	true
+Dig through Time	6UU	Instant	1.46	true
+In Garruk's Wake	7BB	Sorcery	0.70	true
+Temporal Trespass	8UUU	Sorcery	2.36	true
+Tormod's Crypt	0	Artifact	0.37	true
+Sensei's Divining Top	1	Artifact	22.00	true
+Shuriken	1	Artifact	0.31	true
+Sol Ring	1	Artifact	3.05	true
+Dimir Signet	2	Artifact	1.37	true
+Fellwar Stone	2	Artifact	1.08	true
+Mind Stone	2	Artifact	0.42	true
+Talisman of Dominace	2	Artifact	1.35	true
+Thought Vessel	2	Artifact	6.70	true
+Commander's Sphere	3	Artifact	0.99	true
+Crystal Shard	3	Artifact	1.09	true
+Darkstell Ingot	3	Artifact	0.41	true
+Dragon Mask	3	Artifact	0.24	true
+Worn PowerStone	3	Artifact	0.48	true
+Erratic Portal	4	Artifact	3.02	true
+Nevinyrral's Disk	4	Artifact	1.24	true
+Thran Dynamo	4	Artifact	5.19	true
+Phyrexian Arena	1BB	Enchanment	8.59	true
+Rhystic Study	2B	Enchanment	14.95	true
+Arcane Adaptation	2U	Enchanment	0.63	true
+Coastal Piracy	2UU	Enchanment	4.20	true
+Island	0	Basic_Land	0.00	true
+Swamp	0	Basic_Land	0.00	true
+Command Tower	0	Land	1.40	true
+Dimir Aqueduct	0	Land	0.76	true
+Bojuka Bog	0	Land	1.86	true
+Choked Estuary	0	Land	1.44	true
+Dismal Backwater	0	Land	0.17	true
+Temple of the False God	0	Land	0.59	true
+Temple of Deceit	0	Land	2.38	true

@@ -4,13 +4,13 @@ private String name, Type, CMC;
 private double Price;
 private boolean inStock, typeFirst;
 
-public Card(String name,String cmc,String type, Double price, boolean typeF){
+public Card(String name,String cmc,String type, Double price, boolean typeF, boolean instock){
 	this.setName(name);
 	this.setCmc(cmc);
 	this.setType(type);
 	this.setPrice(price);
 	this.typeFirst = typeF;
-	this.inStock = true;
+	this.inStock = instock;
 	
 }
 public void setName(String n)
@@ -55,15 +55,19 @@ public boolean getStock()
 {
 	return this.inStock;
 }
+public String printCard()
+{
+	return this.name+"\t"+this.Type+"\t"+this.CMC+"\t"+this.Price+"\t"+this.inStock;
+}
 public String toString()
 {
 	if(this.typeFirst)
 	{
-		return this.name +"\t"+ this.Type +"\t"+ this.CMC +"\t$"+ this.Price +"\t"+ this.inStock;
+		return this.name.toLowerCase().charAt(0)+"";
 	}
 	else
 	{
-		return this.Type +"\t"+ this.name +"\t"+ this.CMC +"\t$"+ this.Price +"\t"+ this.inStock;
+		return this.Type.toLowerCase().charAt(0)+"";
 	}
-	}
+}
 }

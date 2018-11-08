@@ -368,9 +368,12 @@ public class List<Type>
             returning.Last();
             return returning;
     }
+    
     public void insertSort()
     {
     	int n = this.GetSize();
+    	for(int h =0; h < n; h++)
+    	{
     	for (int i = 1; i<n; i++)
     	{
     		this.SetPos(i);
@@ -378,6 +381,7 @@ public class List<Type>
     		Type Keytype = this.GetValue();
     		int j = i-1;
     		this.SetPos(j);
+    		System.out.println(this.GetValue().toString()+">"+ key);
     		while(j>=0 && this.GetValue().toString().toLowerCase().compareTo(key.toLowerCase()) > 0)
     		{
     			this.SetPos(j); //makes sure to switch to next item upon return
@@ -389,6 +393,24 @@ public class List<Type>
     		this.SetPos(j+1);
     		this.Replace(Keytype);
     	}
+    	}
+   		/*Node<Type> new_node = new Node<Type>();
+    	new_node.setData(new_data);
+    	if (this.head.getLink() == null || head.getLink().toString().compareTo(new_node.toString()) >= 0)
+    	{
+    			new_node.setLink(head.getLink());
+    			head.setLink(new_node);
+    	}
+    	else
+    	{
+    		First();
+    		while(this.curr.getLink() != null && this.curr.getLink().toString().compareTo(new_node.toString()) < 0)
+    		{
+    			Replace(this.curr.getData());
+    		}
+    		new_node.setLink(this.curr.getLink());
+    		this.curr.setLink(new_node);
+    	}*/
     }
     // returns a string representation of the entire list (e.g., 1 2 3 4 5)
     // the string "NULL" should be returned for an empty list
