@@ -163,13 +163,14 @@ public class main {
 		boolean count = true;
 		while (count)
 		{
+			
 			Scanner reader = new Scanner(System.in);
 			System.out.println("What is the name of the card?");
-			String Title = reader.next();
+			String Title = reader.nextLine();
 			System.out.println("What is the Converted Mana Cost of the card?\n U is blue B is black G is green R is red W is white.");
-			String mana = reader.next();
+			String mana = reader.nextLine();
 			System.out.println("What is the type of the card? Make sure to meantion if it is legendary.");
-			String thing = reader.next();
+			String thing = reader.nextLine();
 			System.out.println("What is the price of the card?");
 			Double money = reader.nextDouble();
 			Card add = new Card(Title, mana, thing, money, true, true);
@@ -177,7 +178,7 @@ public class main {
 			Card k = new Card(Title, mana, thing, money, false, true);
 			typeTemp.Enqueue(k);
 			System.out.println("Do you wish to continue? y/n");
-			String answer = reader.next();
+			String answer = reader.nextLine();
 			if (answer.toLowerCase().equals("yes") || answer.toLowerCase().equals("y"))
 			{
 				;
@@ -185,6 +186,7 @@ public class main {
 			else if (answer.toLowerCase().equals("no") || answer.toLowerCase().equals("n"))
 			{ 
 				count = false;
+				
 				for ( int adder = 0; adder < nameTemp.GetSize(); adder++)
 				{
 						nameList.InsertAfter(nameTemp.First().GetValue());
@@ -193,7 +195,6 @@ public class main {
 						typeTemp.Dequeue();
 						
 				}
-				
 				
 			}	
 		}
@@ -209,6 +210,7 @@ public class main {
 	}
 	public static String searchCard(String input,Boolean onlyFinding)
 	{
+		binarySearch(nameList, input);
 		return "pussy";
 		
 	}
