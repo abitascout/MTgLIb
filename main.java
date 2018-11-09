@@ -70,7 +70,7 @@ public class main {
 				Boolean available = FileReader.nextBoolean();
 				Card nameCard = new Card(name, cmc, type, price, true, available);
 				nameList.InsertAfter(nameCard);
-				Card typeCard = new Card(name, cmc, type, price, false, available);
+				Card typeCard = new Card(name, cmc, type, price, true, available);
 				typeList.InsertAfter(typeCard);
 			}
 			FileReader.close();
@@ -156,7 +156,23 @@ public class main {
 	//calls to printlist
 	public static String displayList()
 	{
-		return printList(nameList,true);
+		Scanner input = new Scanner(System.in);
+		System.out.println("Do you want you to diplay by name or type?");
+		String display = input.nextLine();
+		if (display.toLowerCase().equals("Name"))
+		{
+			return printList(nameList, true);
+		}
+		else if (display.toLowerCase().equals("Type"))
+		{
+			String x = nameList.getType();
+			return printList(x, true);
+		}
+		else
+		{
+			return "Error please try again.";
+		}
+		
 	}
 	//a Queue will be used to hold all cards that are to be added to lists, this way user input is fast and the computer
 	//will deal with adding new cards after the user has finished adding new cards
