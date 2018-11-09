@@ -186,7 +186,7 @@ public class main {
 			else if (answer.toLowerCase().equals("no") || answer.toLowerCase().equals("n"))
 			{ 
 				count = false;
-				nameList.Last();
+				nameList.Last(); 
 				typeList.Last();
 				for ( int adder = 0; adder < nameTemp.GetSize(); adder++)
 				{
