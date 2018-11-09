@@ -152,7 +152,7 @@ public class main {
 	}
 	public static String displayList()
 	{
-		return printList(nameList,false);
+		return printList(nameList,true);
 	}
 	//a Queue will be used to hold all cards that are to be added to lists, this way user input is fast and the computer
 	//will deal with adding new cards after the user has finished adding new cards
