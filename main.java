@@ -64,8 +64,8 @@ public class main {
 			while(FileReader.hasNext())
 			{
 				String name = FileReader.next();
-				String type = FileReader.next();
 				String cmc = FileReader.next();
+				String type = FileReader.next();
 				Double price = FileReader.nextDouble();
 				Boolean available = FileReader.nextBoolean();
 				Card nameCard = new Card(name, cmc, type, price, true, available);
@@ -114,6 +114,8 @@ public class main {
 			File file = new File("Deck.txt");
 			FileWriter filewriter = new FileWriter(file);
 			BufferedWriter bufferwriter = new BufferedWriter(filewriter);
+			bufferwriter.write("Name\tCMC\tType\tPrice\tInStock");
+			bufferwriter.newLine();
 			while(breakdown.hasNextLine())
 			{
 				bufferwriter.write(breakdown.nextLine());
@@ -134,13 +136,13 @@ public class main {
 		int l = 0, r = inList.GetSize() - 1;
 		while(l <= r)
 		{
-			int m = (l + (r-1))/2;
+			int m = (l + r)/2;
 			inList.SetPos(m);
-			if(inList.GetValue().getName().compareTo(search) == 0)
+			if(inList.GetValue().getName().toLowerCase().compareTo(search.toLowerCase()) == 0)
 			{
 				return inList.GetPos();
 			}
-			if(inList.GetValue().getName().compareTo(search) < 0)
+			if(inList.GetValue().getName().toLowerCase().compareTo(search.toLowerCase()) < 0)
 			{
 				l = m + 1;	
 			}
@@ -235,7 +237,7 @@ public class main {
 			typeList.First();
 			for (int i = 0; i < typeList.GetSize(); i++)
 			{
-				if (typeList.GetValue().getType().toLowerCase().equals(ty.toLowerCase()) || typeList.GetValue().getType().toLowerCase().equals("Legendary "+ty))
+				if (typeList.GetValue().getType().toLowerCase().equals(ty.toLowerCase()) || typeList.GetValue().getType().toLowerCase().equals("Legendary_"+ty))
 				{
 					newTypeTemp.Enqueue(typeList.GetValue());
 				}
@@ -287,7 +289,7 @@ public class main {
     			FireList.Replace(Keytype);
     		}
     	}
-    	System.out.println("FIRE ALERT PRIORITY LIST");
+    	System.out.println("FIRE ALERT PRIORITY LIST\n______________________________________________");
 		return printList(FireList, true);
 	}
 	

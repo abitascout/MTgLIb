@@ -1,3 +1,6 @@
+Name	CMC	Type	Price	InStock
+Ancient Craving	Sorcery	3B	0.24	true
+Arcane Adaptation	Enchanment	2U	0.63	true
 Arcane Denial	Instant	1U	0.42	true
 Beacon of Tomorrows	Sorcery	6UU	1.6	true
 Bojuka Bog	Land	0	1.86	true
