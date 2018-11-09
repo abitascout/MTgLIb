@@ -185,6 +185,10 @@ public class main {
 			{
 				runner = false;
 			}
+			else if(ans.toLowerCase().equals("y"))
+			{
+				;
+			}
 		}
 		int size = nameTemp.GetSize();
 		for(int i = 0; i < size; i++)
