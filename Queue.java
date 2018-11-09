@@ -6,8 +6,7 @@
  * @date 10/18/2018
  */
 //suppresswarnings so IDE doesn't complain
-@SuppressWarnings("all")
-public class Queue<Type> extends List
+public class Queue<Type> extends List<Type>
 {
     // instance variables - replace the example below with your own
     public void Enqueue(Type data)
@@ -30,6 +29,7 @@ public class Queue<Type> extends List
     		super.Next();
     		
     	}
+    	super.First();
     	return output;
     }
 

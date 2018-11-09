@@ -64,8 +64,8 @@ public class main {
 			while(FileReader.hasNext())
 			{
 				String name = FileReader.next();
-				String type = FileReader.next();
 				String cmc = FileReader.next();
+				String type = FileReader.next();
 				Double price = FileReader.nextDouble();
 				Boolean available = FileReader.nextBoolean();
 				Card nameCard = new Card(name, cmc, type, price, true, available);
@@ -114,6 +114,8 @@ public class main {
 			File file = new File("Deck.txt");
 			FileWriter filewriter = new FileWriter(file);
 			BufferedWriter bufferwriter = new BufferedWriter(filewriter);
+			bufferwriter.write("Name\tCMC\tType\tPrice\tInStock");
+			bufferwriter.newLine();
 			while(breakdown.hasNextLine())
 			{
 				bufferwriter.write(breakdown.nextLine());
@@ -127,19 +129,20 @@ public class main {
 			e.printStackTrace();
 		}
 	}
+	//searches for location of an item
 	public static int binarySearch(List<Card> inList, String search)
 	{
 		inList.First();
 		int l = 0, r = inList.GetSize() - 1;
 		while(l <= r)
 		{
-			int m = (l + (r-1))/2;
+			int m = (l + r)/2;
 			inList.SetPos(m);
-			if(inList.GetValue().getName().compareTo(search) == 0)
+			if(inList.GetValue().getName().toLowerCase().compareTo(search.toLowerCase()) == 0)
 			{
 				return inList.GetPos();
 			}
-			if(inList.GetValue().getName().compareTo(search) < 0)
+			if(inList.GetValue().getName().toLowerCase().compareTo(search.toLowerCase()) < 0)
 			{
 				l = m + 1;	
 			}
@@ -150,6 +153,7 @@ public class main {
 		}
 		return -1;
 	}
+	//calls to printlist
 	public static String displayList()
 	{
 		return printList(nameList,true);
@@ -160,11 +164,10 @@ public class main {
 	{
 		Queue<Card> nameTemp = new Queue<Card>();
 		Queue<Card> typeTemp = new Queue<Card>();
-		boolean count = true;
-		while (count)
+		Scanner reader = new Scanner(System.in);
+		boolean runner = true;
+		while(runner)
 		{
-			
-			Scanner reader = new Scanner(System.in);
 			System.out.println("What is the name of the card?");
 			String Title = reader.nextLine();
 			System.out.println("What is the Converted Mana Cost of the card?\n U is blue B is black G is green R is red W is white.");
@@ -173,32 +176,31 @@ public class main {
 			String thing = reader.nextLine();
 			System.out.println("What is the price of the card?");
 			Double money = reader.nextDouble();
+			reader.nextLine();
 			Card add = new Card(Title, mana, thing, money, true, true);
 			nameTemp.Enqueue(add);
 			Card k = new Card(Title, mana, thing, money, false, true);
 			typeTemp.Enqueue(k);
-			System.out.println("Do you wish to continue? y/n");
-			String answer = reader.next();
-			if (answer.toLowerCase().equals("yes") || answer.toLowerCase().equals("y"))
+			System.out.println("Continue adding? y/n");
+			String ans = reader.nextLine();
+			if(ans.toLowerCase().equals("n"))
+			{
+				runner = false;
+			}
+			else if(ans.toLowerCase().equals("y"))
 			{
 				;
 			}
-			else if (answer.toLowerCase().equals("no") || answer.toLowerCase().equals("n"))
-			{ 
-				count = false;
-				nameList.Last(); 
-				typeList.Last();
-				for ( int adder = 0; adder < nameTemp.GetSize(); adder++)
-				{
-					System.out.println(nameTemp.GetValue());
-					nameList.InsertAfter((Card)nameTemp.GetValue());
-					nameTemp.Dequeue();
-					typeList.InsertAfter((Card)typeTemp.GetValue());
-					typeTemp.Dequeue();
-						
-				}
-				
-			}	
+		}
+		int size = nameTemp.GetSize();
+		for(int i = 0; i < size; i++)
+		{
+			nameTemp.First();
+			typeTemp.First();
+			nameList.InsertAfter((Card)nameTemp.GetValue());
+			nameTemp.Dequeue();
+			typeList.InsertAfter((Card)typeTemp.GetValue());
+			typeTemp.Dequeue();
 		}
 		nameList.insertSort();
 		typeList.insertSort();
@@ -212,6 +214,7 @@ public class main {
 		nameList.Remove();
 
 	}
+	//A queue is used to collect all cards of a specific type, they will stay in order due to the nature of queue's being FIFO
 	public static String searchCard(Boolean onlyFinding)
 	{
 		Queue<Card> newTypeTemp = new Queue<Card>();
@@ -234,7 +237,7 @@ public class main {
 			typeList.First();
 			for (int i = 0; i < typeList.GetSize(); i++)
 			{
-				if (typeList.GetValue().getType().toLowerCase().equals(ty.toLowerCase()) || typeList.GetValue().getType().toLowerCase().equals("Legendary "+ty))
+				if (typeList.GetValue().getType().toLowerCase().equals(ty.toLowerCase()) || typeList.GetValue().getType().toLowerCase().equals("Legendary_"+ty))
 				{
 					newTypeTemp.Enqueue(typeList.GetValue());
 				}
@@ -254,6 +257,7 @@ public class main {
 				return "error. name or type was spelled incorrect or card not found.";
 		}
 	}
+	//A list is used to compile the priority list, a sort algorithm is used on the prices to put the most expensive items at the top
 	public static String fireDrill()
 	{
 		List<Card> FireList = new List<Card>();
@@ -285,7 +289,7 @@ public class main {
     			FireList.Replace(Keytype);
     		}
     	}
-    	System.out.println("FIRE ALERT PRIORITY LIST");
+    	System.out.println("FIRE ALERT PRIORITY LIST\n______________________________________________");
 		return printList(FireList, true);
 	}
 	
