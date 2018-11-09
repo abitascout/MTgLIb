@@ -63,11 +63,11 @@ public String toString()
 {
 	if(this.typeFirst)
 	{
-		return this.name;
+		return this.name+" "+this.Type;
 	}
 	else
 	{
-		return this.Type;
+		return this.Type+" "+this.name;
 	}
 }
 }

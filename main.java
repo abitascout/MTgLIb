@@ -13,8 +13,6 @@ public class main {
 	//using linked lists to store cards due to 
 	public static List<Card> nameList = new List<Card>();
 	public static List<Card> typeList = new List<Card>();
-	public static Queue<Card> nameTemp = new Queue<Card>();
-	public static Queue<Card> typeTemp = new Queue<Card>();
 	public static void main (String args[])
 	{
 		//import data from file Deck.txt
@@ -66,8 +64,8 @@ public class main {
 			while(FileReader.hasNext())
 			{
 				String name = FileReader.next();
-				String cmc = FileReader.next();
 				String type = FileReader.next();
+				String cmc = FileReader.next();
 				Double price = FileReader.nextDouble();
 				Boolean available = FileReader.nextBoolean();
 				Card nameCard = new Card(name, cmc, type, price, true, available);
@@ -160,6 +158,8 @@ public class main {
 	//will deal with adding new cards after the user has finished adding new cards
 	public static void addCard()
 	{
+		Queue<Card> nameTemp = new Queue<Card>();
+		Queue<Card> typeTemp = new Queue<Card>();
 		boolean count = true;
 		while (count)
 		{
@@ -178,7 +178,7 @@ public class main {
 			Card k = new Card(Title, mana, thing, money, false, true);
 			typeTemp.Enqueue(k);
 			System.out.println("Do you wish to continue? y/n");
-			String answer = reader.nextLine();
+			String answer = reader.next();
 			if (answer.toLowerCase().equals("yes") || answer.toLowerCase().equals("y"))
 			{
 				;
@@ -186,18 +186,22 @@ public class main {
 			else if (answer.toLowerCase().equals("no") || answer.toLowerCase().equals("n"))
 			{ 
 				count = false;
-				
+				nameList.Last();
+				typeList.Last();
 				for ( int adder = 0; adder < nameTemp.GetSize(); adder++)
 				{
-						nameList.InsertAfter(nameTemp.First().GetValue());
-						nameTemp.Dequeue();
-						typeList.InsertAfter(typeTemp.First().GetValue());
-						typeTemp.Dequeue();
+					System.out.println(nameTemp.GetValue());
+					nameList.InsertAfter((Card)nameTemp.GetValue());
+					nameTemp.Dequeue();
+					typeList.InsertAfter((Card)typeTemp.GetValue());
+					typeTemp.Dequeue();
 						
 				}
 				
 			}	
 		}
+		nameList.insertSort();
+		typeList.insertSort();
 	}
 	public static void removeCard()
 	{
