@@ -104,6 +104,23 @@ public class main {
 		}
 		return forwardStack+"";
 	}
+	public static String printTypeList(List<Card> typer, boolean showAll)
+	{
+		typer.Last();
+		Stack<String> stack = new Stack<String>();
+		for (int count = 0; count < typer.GetSize(); count++)
+		{
+			if (!showAll && typer.GetValue().getType() && typer.GetValue().getStock())
+			{
+					stack.Push(typer.GetValue().getType());
+			}
+			else
+			{
+				stack.Push(typer.GetValue().getType());
+			}
+		}
+		return stack+"";
+	}
 	//output text to file
 	public static void exportFile( String contents)
 	{
@@ -165,8 +182,8 @@ public class main {
 		}
 		else if (display.toLowerCase().equals("Type"))
 		{
-			String x = nameList.getType();
-			return printList(x, true);
+			
+			return printTypeList(nameList, true);
 		}
 		else
 		{
