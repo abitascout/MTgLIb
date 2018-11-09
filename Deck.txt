@@ -1,4 +1,3 @@
-Arcane Denial	Instant	1U	0.42	true
 Beacon of Tomorrows	Sorcery	6UU	1.6	true
 Bojuka Bog	Land	0	1.86	true
 Brainstorm	Instant	U	0.65	true
