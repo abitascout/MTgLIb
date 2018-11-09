@@ -161,28 +161,41 @@ public class main {
 	public static void addCard()
 	{
 		Queue<Card> nameTemp = new Queue<Card>();
-		Queue<Card> typeTemp = new Queue<Card>();	
+		Queue<Card> typeTemp = new Queue<Card>();
 		Scanner reader = new Scanner(System.in);
-		System.out.println("What is the name of the card?");
-		String Title = reader.nextLine();
-		System.out.println("What is the Converted Mana Cost of the card?\n U is blue B is black G is green R is red W is white.");
-		String mana = reader.nextLine();
-		System.out.println("What is the type of the card? Make sure to meantion if it is legendary.");
-		String thing = reader.nextLine();
-		System.out.println("What is the price of the card?");
-		Double money = reader.nextDouble();
-		Card add = new Card(Title, mana, thing, money, true, true);
-		nameTemp.Enqueue(add);
-		Card k = new Card(Title, mana, thing, money, false, true);
-		typeTemp.Enqueue(k);
-		nameList.Last(); 
-		typeList.Last();
-		int size = nameTemp.GetSize();	
-		System.out.println(nameTemp);
-		nameList.InsertAfter((Card)nameTemp.GetValue());
-		nameTemp.Dequeue();
-		typeList.InsertAfter((Card)typeTemp.GetValue());
-		typeTemp.Dequeue();	
+		boolean runner = true;
+		while(runner)
+		{
+			System.out.println("What is the name of the card?");
+			String Title = reader.nextLine();
+			System.out.println("What is the Converted Mana Cost of the card?\n U is blue B is black G is green R is red W is white.");
+			String mana = reader.nextLine();
+			System.out.println("What is the type of the card? Make sure to meantion if it is legendary.");
+			String thing = reader.nextLine();
+			System.out.println("What is the price of the card?");
+			Double money = reader.nextDouble();
+			reader.nextLine();
+			Card add = new Card(Title, mana, thing, money, true, true);
+			nameTemp.Enqueue(add);
+			Card k = new Card(Title, mana, thing, money, false, true);
+			typeTemp.Enqueue(k);
+			System.out.println("Continue adding? y/n");
+			String ans = reader.nextLine();
+			if(ans.toLowerCase().equals("n"))
+			{
+				runner = false;
+			}
+		}
+		int size = nameTemp.GetSize();
+		for(int i = 0; i < size; i++)
+		{
+			nameTemp.First();
+			typeTemp.First();
+			nameList.InsertAfter((Card)nameTemp.GetValue());
+			nameTemp.Dequeue();
+			typeList.InsertAfter((Card)typeTemp.GetValue());
+			typeTemp.Dequeue();
+		}
 		nameList.insertSort();
 		typeList.insertSort();
 	}
