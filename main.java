@@ -26,8 +26,7 @@ public class main {
 			switch(choice)
 			{
 				case "1":
-					System.out.println("Name\tType\tCMC\tPrice\tInStock\n__________________________________________________");
-					System.out.println(displayList());
+					displayList();
 					break;
 				case "2":
 					addCard();
@@ -70,7 +69,7 @@ public class main {
 				Boolean available = FileReader.nextBoolean();
 				Card nameCard = new Card(name, cmc, type, price, true, available);
 				nameList.InsertAfter(nameCard);
-				Card typeCard = new Card(name, cmc, type, price, true, available);
+				Card typeCard = new Card(name, cmc, type, price, false, available);
 				typeList.InsertAfter(typeCard);
 			}
 			FileReader.close();
@@ -110,14 +109,15 @@ public class main {
 		Stack<String> stack = new Stack<String>();
 		for (int count = 0; count < typer.GetSize(); count++)
 		{
-			if (!showAll && typer.GetValue().getType() && typer.GetValue().getStock())
+			if (!showAll && typer.GetValue().getStock())
 			{
-					stack.Push(typer.GetValue().getType());
+					stack.Push(typer.GetValue().getType().printCard());
 			}
 			else
 			{
-				stack.Push(typer.GetValue().getType());
+				stack.Push(typer.GetValue().getType().printCard());
 			}
+			typer.Prev();
 		}
 		return stack+"";
 	}
@@ -171,23 +171,24 @@ public class main {
 		return -1;
 	}
 	//calls to printlist
-	public static String displayList()
+	public static void displayList()
 	{
 		Scanner input = new Scanner(System.in);
 		System.out.println("Do you want you to diplay by name or type?");
 		String display = input.nextLine();
 		if (display.toLowerCase().equals("Name"))
 		{
-			return printList(nameList, true);
+			System.out.println("Name\tType\tCMC\tPrice\tInStock\n__________________________________________________");
+			System.out.println(printList(nameList, true));
 		}
 		else if (display.toLowerCase().equals("Type"))
 		{
-			
-			return printTypeList(nameList, true);
+			System.out.println("Name\tType\tCMC\tPrice\tInStock\n__________________________________________________");
+			System.out.println(printTypeList(nameList, true));
 		}
 		else
 		{
-			return "Error please try again.";
+			System.out.println("Error please try again.");
 		}
 		
 	}
