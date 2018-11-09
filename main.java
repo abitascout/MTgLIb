@@ -13,6 +13,8 @@ public class main {
 	//using linked lists to store cards due to 
 	public static List<Card> nameList = new List<Card>();
 	public static List<Card> typeList = new List<Card>();
+	public static Queue<Card> nameTemp = new Queue<Card>();
+	public static Queue<Card> typeTemp = new Queue<Card>();
 	public static void main (String args[])
 	{
 		//import data from file Deck.txt
@@ -167,13 +169,13 @@ public class main {
 			System.out.println("What is the Converted Mana Cost of the card?\n U is blue B is black G is green R is red W is white.");
 			String mana = reader.next();
 			System.out.println("What is the type of the card? Make sure to meantion if it is legendary.");
-			String thing = reader.nextLine();
+			String thing = reader.next();
 			System.out.println("What is the price of the card?");
 			Double money = reader.nextDouble();
 			Card add = new Card(Title, mana, thing, money, true, true);
-			nameList.InsertAfter(add);
+			nameTemp.Enqueue(add);
 			Card k = new Card(Title, mana, thing, money, false, true);
-			typeList.InsertAfter(k);
+			typeTemp.Enqueue(k);
 			System.out.println("Do you wish to continue? y/n");
 			String answer = reader.next();
 			if (answer.toLowerCase().equals("yes") || answer.toLowerCase().equals("y"))
@@ -183,7 +185,16 @@ public class main {
 			else if (answer.toLowerCase().equals("no") || answer.toLowerCase().equals("n"))
 			{ 
 				count = false;
-				reader.close();	
+				for ( int adder = 0; adder < nameTemp.GetSize(); adder++)
+				{
+						nameList.InsertAfter(nameTemp.First().GetValue());
+						nameTemp.Dequeue();
+						typeList.InsertAfter(typeTemp.First().GetValue());
+						typeTemp.Dequeue();
+						
+				}
+				
+				
 			}	
 		}
 	}
