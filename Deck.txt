@@ -1,4 +1,3 @@
-Arcane Adaptation	Enchanment	2U	0.63	true
 Arcane Denial	Instant	1U	0.42	true
 Beacon of Tomorrows	Sorcery	6UU	1.6	true
 Bojuka Bog	Land	0	1.86	true
@@ -44,7 +43,6 @@ Read the Bones	Sorcery	2B	0.17	true
 Rhystic Study	Enchanment	2B	14.95	true
 Sakahima's Student	Creature	2UU	22.85	true
 Sensei's Divining Top	Artifact	1	22.0	true
-Sheogorath	Planeswalker	2BB	100.0	true
 Shuriken	Artifact	1	0.31	true
 Silent-Blade Oni	Legendary_Creature	3UUBB	1.42	true
 Sol Ring	Artifact	1	3.05	true

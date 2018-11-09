@@ -40,7 +40,7 @@ public class main {
 					System.out.println(searchCard(true));
 					break;
 				case "5":
-					fireDrill();
+					System.out.println(fireDrill());
 					break;
 				case "6":
 					exportFile(printList(nameList,true));
@@ -209,7 +209,7 @@ public class main {
 		System.out.println("What is the name of the card that you want to sell?");
 		String cname = read.nextLine();
 		nameList.SetPos(binarySearch(nameList, cname));
-		nameList.GetValue().setStock(false);
+		nameList.Remove();
 
 	}
 	public static String searchCard(Boolean onlyFinding)
@@ -223,37 +223,70 @@ public class main {
 			System.out.println("What is the name of the card?");
 			String na = say.nextLine();
 			binarySearch(nameList, na);
-			 return System.out.println(nameList.GetValue());
+			System.out.println("Located Card: "+na);
+			 return nameList.GetValue().printCard();
 		}
+		//user wants to search for cards of a specific type
 		else if (input.toLowerCase().equals("type"))
 		{
 			System.out.println("What is the type of the card?");
 			String ty = say.nextLine();
-			nameList.First();
-			for (int i = 0; i < MAX_SIZE; i++)
+			typeList.First();
+			for (int i = 0; i < typeList.GetSize(); i++)
 			{
-				if (nameList.getType().toLowerCase().equals("Creature") || nameList.getType().toLowerCase().equals("Legendary_Creature"))
+				if (typeList.GetValue().getType().toLowerCase().equals(ty.toLowerCase()) || typeList.GetValue().getType().toLowerCase().equals("Legendary "+ty))
 				{
-					newTypeTemp.Enqueue(nameList.GetData());
-					nameList.Next();
+					newTypeTemp.Enqueue(typeList.GetValue());
 				}
 				else
 				{
 					;
 				}
+				typeList.Next();
 				
 			}
+			System.out.println("List of all cards of type: "+ty);
+			System.out.println("Name\tType\tCMC\tPrice\tInStock\n__________________________________________________");
 			return printList(newTypeTemp,false);
 		}
 		else
 		{
 				return "error. name or type was spelled incorrect or card not found.";
 		}
-			return  "all done";
 	}
 	public static String fireDrill()
 	{
-		return null;
+		List<Card> FireList = new List<Card>();
+		nameList.First();
+		for(int i = 0; i<nameList.GetSize(); i++)
+		{
+			FireList.InsertAfter(nameList.GetValue());
+			nameList.Next();
+		}
+		int n = FireList.GetSize();
+    	for(int h =0; h < n; h++)
+    	{
+    		for (int i = 1; i<n; i++)
+    		{
+    			FireList.SetPos(i);
+    			Double key = FireList.GetValue().getPrice();
+    			Card Keytype = FireList.GetValue();
+    			int j = i-1;
+    			FireList.SetPos(j);
+    			while(j>=0 && FireList.GetValue().getPrice() < key)
+    			{
+    				FireList.SetPos(j); //makes sure to switch to next item upon return
+    				Card Temp = FireList.GetValue();
+    				FireList.Next();
+    				FireList.Replace(Temp);
+    				j = j-1;
+    			}
+    			FireList.SetPos(j+1);
+    			FireList.Replace(Keytype);
+    		}
+    	}
+    	System.out.println("FIRE ALERT PRIORITY LIST");
+		return printList(FireList, true);
 	}
 	
 }
