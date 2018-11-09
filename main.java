@@ -39,7 +39,7 @@ public class main {
 					removeCard();
 					break;
 				case "4":
-					System.out.println(searchCard(input.next(), true));
+					searchCard(true);
 					break;
 				case "5":
 					fireDrill();
@@ -208,11 +208,44 @@ public class main {
 		nameList.GetValue().setStock(false);
 
 	}
-	public static String searchCard(String input,Boolean onlyFinding)
+	public static String searchCard(Boolean onlyFinding)
 	{
-		binarySearch(nameList, input);
-		return "pussy";
-		
+		Queue<Card> newTypeTemp = new Queue<Card>();
+		Scanner say = new Scanner(System.in);
+		System.out.println("Do you want to search by name or type?");
+		String input = say.nextLine();
+		if (input.toLowerCase().equals("name"))
+		{
+			System.out.println("What is the name of the card?");
+			String na = say.nextLine();
+			binarySearch(nameList, na);
+			 return System.out.println(nameList.GetValue());
+		}
+		else if (input.toLowerCase().equals("type"))
+		{
+			System.out.println("What is the type of the card?");
+			String ty = say.nextLine();
+			nameList.First();
+			for (int i = 0; i < MAX_SIZE; i++)
+			{
+				if (nameList.getType().toLowerCase().equals("Creature") || nameList.getType().toLowerCase().equals("Legendary_Creature"))
+				{
+					newTypeTemp.Enqueue(nameList.GetData());
+					nameList.Next();
+				}
+				else
+				{
+					;
+				}
+				
+			}
+			return printList(newTypeTemp,false);
+		}
+		else
+		{
+				return "error. name or type was spelled incorrect or card not found.";
+		}
+			return  "all done";
 	}
 	public static String fireDrill()
 	{
