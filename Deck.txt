@@ -1,7 +1,3 @@
-Ancient Craving	Sorcery	3B	0.24	true
-Arcane Adaptation	Enchanment	2U	0.63	true
-Arcane Denial	Instant	1U	0.42	true
-Beacon of Tomorrows	Sorcery	6UU	1.6	true
 Bojuka Bog	Land	0	1.86	true
 Brainstorm	Instant	U	0.65	true
 Capsize	Instant	1UU	1.43	true
@@ -41,7 +37,7 @@ Part the Waterviel	Sorcery	4UU	1.63	true
 Phyrexian Arena	Enchanment	1BB	8.59	true
 Ponder	Sorcery	U	2.27	true
 Ravenous Chupacabra	Creature	2BB	0.76	true
-Read the Bones	Sorcery	2B	0.17	true
+Read the Bones	Sorcery	2B	0.17	false
 Rhystic Study	Enchanment	2B	14.95	true
 Sakahima's Student	Creature	2UU	22.85	true
 Sensei's Divining Top	Artifact	1	22.0	true
