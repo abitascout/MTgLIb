@@ -13,6 +13,8 @@ public class main {
 	//using linked lists to store cards due to 
 	public static List<Card> nameList = new List<Card>();
 	public static List<Card> typeList = new List<Card>();
+	public static Queue<Card> nameTemp = new Queue<Card>();
+	public static Queue<Card> typeTemp = new Queue<Card>();
 	public static void main (String args[])
 	{
 		//import data from file Deck.txt
@@ -37,7 +39,7 @@ public class main {
 					removeCard();
 					break;
 				case "4":
-					System.out.println(searchCard(input.next(), true));
+					searchCard(true);
 					break;
 				case "5":
 					fireDrill();
@@ -64,8 +66,8 @@ public class main {
 			while(FileReader.hasNext())
 			{
 				String name = FileReader.next();
-				String type = FileReader.next();
 				String cmc = FileReader.next();
+				String type = FileReader.next();
 				Double price = FileReader.nextDouble();
 				Boolean available = FileReader.nextBoolean();
 				Card nameCard = new Card(name, cmc, type, price, true, available);
@@ -158,8 +160,6 @@ public class main {
 	//will deal with adding new cards after the user has finished adding new cards
 	public static void addCard()
 	{
-		Queue<Card> nameTemp = new Queue<Card>();
-		Queue<Card> typeTemp = new Queue<Card>();
 		boolean count = true;
 		while (count)
 		{
@@ -178,7 +178,7 @@ public class main {
 			Card k = new Card(Title, mana, thing, money, false, true);
 			typeTemp.Enqueue(k);
 			System.out.println("Do you wish to continue? y/n");
-			String answer = reader.next();
+			String answer = reader.nextLine();
 			if (answer.toLowerCase().equals("yes") || answer.toLowerCase().equals("y"))
 			{
 				;
@@ -186,22 +186,23 @@ public class main {
 			else if (answer.toLowerCase().equals("no") || answer.toLowerCase().equals("n"))
 			{ 
 				count = false;
+<<<<<<< HEAD
 				nameList.Last(); 
 				typeList.Last();
+=======
+				
+>>>>>>> ae9746e0eb8ab57595d24a390b3778c3da4c2db3
 				for ( int adder = 0; adder < nameTemp.GetSize(); adder++)
 				{
-					System.out.println(nameTemp.GetValue());
-					nameList.InsertAfter((Card)nameTemp.GetValue());
-					nameTemp.Dequeue();
-					typeList.InsertAfter((Card)typeTemp.GetValue());
-					typeTemp.Dequeue();
+						nameList.InsertAfter(nameTemp.First().GetValue());
+						nameTemp.Dequeue();
+						typeList.InsertAfter(typeTemp.First().GetValue());
+						typeTemp.Dequeue();
 						
 				}
 				
 			}	
 		}
-		nameList.insertSort();
-		typeList.insertSort();
 	}
 	public static void removeCard()
 	{
@@ -212,11 +213,44 @@ public class main {
 		nameList.GetValue().setStock(false);
 
 	}
-	public static String searchCard(String input,Boolean onlyFinding)
+	public static String searchCard(Boolean onlyFinding)
 	{
-		binarySearch(nameList, input);
-		return "pussy";
-		
+		Queue<Card> newTypeTemp = new Queue<Card>();
+		Scanner say = new Scanner(System.in);
+		System.out.println("Do you want to search by name or type?");
+		String input = say.nextLine();
+		if (input.toLowerCase().equals("name"))
+		{
+			System.out.println("What is the name of the card?");
+			String na = say.nextLine();
+			binarySearch(nameList, na);
+			 return System.out.println(nameList.GetValue());
+		}
+		else if (input.toLowerCase().equals("type"))
+		{
+			System.out.println("What is the type of the card?");
+			String ty = say.nextLine();
+			nameList.First();
+			for (int i = 0; i < MAX_SIZE; i++)
+			{
+				if (nameList.getType().toLowerCase().equals("Creature") || nameList.getType().toLowerCase().equals("Legendary_Creature"))
+				{
+					newTypeTemp.Enqueue(nameList.GetData());
+					nameList.Next();
+				}
+				else
+				{
+					;
+				}
+				
+			}
+			return printList(newTypeTemp,false);
+		}
+		else
+		{
+				return "error. name or type was spelled incorrect or card not found.";
+		}
+			return  "all done";
 	}
 	public static String fireDrill()
 	{
