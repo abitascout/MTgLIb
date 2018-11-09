@@ -1,13 +1,13 @@
 Name	CMC	Type	Price	InStock
 Ancient Craving	Sorcery	3B	0.24	true
-Arcane Adaptation	Enchanment	2U	0.63	true
+Arcane Adaptation	Enchantment	2U	0.63	true
 Arcane Denial	Instant	1U	0.42	true
 Beacon of Tomorrows	Sorcery	6UU	1.6	true
 Bojuka Bog	Land	0	1.86	true
 Brainstorm	Instant	U	0.65	true
 Capsize	Instant	1UU	1.43	true
 Choked Estuary	Land	0	1.44	true
-Coastal Piracy	Enchanment	2UU	4.2	true
+Coastal Piracy	Enchantment	2UU	4.2	true
 Command Tower	Land	0	1.4	true
 Commander's Sphere	Artifact	3	0.99	true
 Counterspell	Instant	UU	1.0	true
@@ -39,11 +39,11 @@ Mystic Confluence	Instant	3BB	3.12	true
 Nevinyrral's Disk	Artifact	4	1.24	true
 Ninja of the Deep Hours	Creature	3U	0.99	true
 Part the Waterviel	Sorcery	4UU	1.63	true
-Phyrexian Arena	Enchanment	1BB	8.59	true
+Phyrexian Arena	Enchantment	1BB	8.59	true
 Ponder	Sorcery	U	2.27	true
 Ravenous Chupacabra	Creature	2BB	0.76	true
 Read the Bones	Sorcery	2B	0.17	true
-Rhystic Study	Enchanment	2B	14.95	true
+Rhystic Study	Enchantment	2B	14.95	true
 Sakahima's Student	Creature	2UU	22.85	true
 Sensei's Divining Top	Artifact	1	22.0	true
 Shuriken	Artifact	1	0.31	true
