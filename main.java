@@ -127,6 +127,7 @@ public class main {
 			e.printStackTrace();
 		}
 	}
+	//searches for location of an item
 	public static int binarySearch(List<Card> inList, String search)
 	{
 		inList.First();
@@ -150,6 +151,7 @@ public class main {
 		}
 		return -1;
 	}
+	//calls to printlist
 	public static String displayList()
 	{
 		return printList(nameList,false);
@@ -159,47 +161,28 @@ public class main {
 	public static void addCard()
 	{
 		Queue<Card> nameTemp = new Queue<Card>();
-		Queue<Card> typeTemp = new Queue<Card>();
-		boolean count = true;
-		while (count)
-		{
-			
-			Scanner reader = new Scanner(System.in);
-			System.out.println("What is the name of the card?");
-			String Title = reader.nextLine();
-			System.out.println("What is the Converted Mana Cost of the card?\n U is blue B is black G is green R is red W is white.");
-			String mana = reader.nextLine();
-			System.out.println("What is the type of the card? Make sure to meantion if it is legendary.");
-			String thing = reader.nextLine();
-			System.out.println("What is the price of the card?");
-			Double money = reader.nextDouble();
-			Card add = new Card(Title, mana, thing, money, true, true);
-			nameTemp.Enqueue(add);
-			Card k = new Card(Title, mana, thing, money, false, true);
-			typeTemp.Enqueue(k);
-			System.out.println("Do you wish to continue? y/n");
-			String answer = reader.next();
-			if (answer.toLowerCase().equals("yes") || answer.toLowerCase().equals("y"))
-			{
-				;
-			}
-			else if (answer.toLowerCase().equals("no") || answer.toLowerCase().equals("n"))
-			{ 
-				count = false;
-				nameList.Last(); 
-				typeList.Last();
-				for ( int adder = 0; adder < nameTemp.GetSize(); adder++)
-				{
-					System.out.println(nameTemp.GetValue());
-					nameList.InsertAfter((Card)nameTemp.GetValue());
-					nameTemp.Dequeue();
-					typeList.InsertAfter((Card)typeTemp.GetValue());
-					typeTemp.Dequeue();
-						
-				}
-				
-			}	
-		}
+		Queue<Card> typeTemp = new Queue<Card>();	
+		Scanner reader = new Scanner(System.in);
+		System.out.println("What is the name of the card?");
+		String Title = reader.nextLine();
+		System.out.println("What is the Converted Mana Cost of the card?\n U is blue B is black G is green R is red W is white.");
+		String mana = reader.nextLine();
+		System.out.println("What is the type of the card? Make sure to meantion if it is legendary.");
+		String thing = reader.nextLine();
+		System.out.println("What is the price of the card?");
+		Double money = reader.nextDouble();
+		Card add = new Card(Title, mana, thing, money, true, true);
+		nameTemp.Enqueue(add);
+		Card k = new Card(Title, mana, thing, money, false, true);
+		typeTemp.Enqueue(k);
+		nameList.Last(); 
+		typeList.Last();
+		int size = nameTemp.GetSize();	
+		System.out.println(nameTemp);
+		nameList.InsertAfter((Card)nameTemp.GetValue());
+		nameTemp.Dequeue();
+		typeList.InsertAfter((Card)typeTemp.GetValue());
+		typeTemp.Dequeue();	
 		nameList.insertSort();
 		typeList.insertSort();
 	}
@@ -212,6 +195,7 @@ public class main {
 		nameList.Remove();
 
 	}
+	//A queue is used to collect all cards of a specific type, they will stay in order due to the nature of queue's being FIFO
 	public static String searchCard(Boolean onlyFinding)
 	{
 		Queue<Card> newTypeTemp = new Queue<Card>();
@@ -254,6 +238,7 @@ public class main {
 				return "error. name or type was spelled incorrect or card not found.";
 		}
 	}
+	//A list is used to compile the priority list, a sort algorithm is used on the prices to put the most expensive items at the top
 	public static String fireDrill()
 	{
 		List<Card> FireList = new List<Card>();
