@@ -63,8 +63,8 @@ public class main {
 			while(FileReader.hasNext())
 			{
 				String name = FileReader.next();
-				String cmc = FileReader.next();
 				String type = FileReader.next();
+				String cmc = FileReader.next();
 				Double price = FileReader.nextDouble();
 				Boolean available = FileReader.nextBoolean();
 				Card nameCard = new Card(name, cmc, type, price, true, available);
@@ -103,7 +103,7 @@ public class main {
 		}
 		return forwardStack+"";
 	}
-	public static String printTypeList(List<Card> typer, boolean showAll)
+	/*public static String printTypeList(List<Card> typer, boolean showAll)
 	{
 		typer.Last();
 		Stack<String> stack = new Stack<String>();
@@ -120,7 +120,7 @@ public class main {
 			typer.Prev();
 		}
 		return stack+"";
-	}
+	}*/
 	//output text to file
 	public static void exportFile( String contents)
 	{
@@ -176,15 +176,15 @@ public class main {
 		Scanner input = new Scanner(System.in);
 		System.out.println("Do you want you to diplay by name or type?");
 		String display = input.nextLine();
-		if (display.toLowerCase().equals("Name"))
+		if (display.toLowerCase().toLowerCase().equals("name"))
 		{
 			System.out.println("Name\tType\tCMC\tPrice\tInStock\n__________________________________________________");
 			System.out.println(printList(nameList, true));
 		}
-		else if (display.toLowerCase().equals("Type"))
+		else if (display.toLowerCase().toLowerCase().equals("type"))
 		{
 			System.out.println("Name\tType\tCMC\tPrice\tInStock\n__________________________________________________");
-			System.out.println(printTypeList(nameList, true));
+			System.out.println(printList(typeList, true));
 		}
 		else
 		{
@@ -257,7 +257,7 @@ public class main {
 		String input = say.nextLine();
 		if (input.toLowerCase().equals("name"))
 		{
-			System.out.println("What is the name of the card?");
+			System.out.println("What is the name of the card? Please try to input the full name.");
 			String na = say.nextLine();
 			binarySearch(nameList, na);
 			System.out.println("Located Card: "+na);
@@ -271,7 +271,7 @@ public class main {
 			typeList.First();
 			for (int i = 0; i < typeList.GetSize(); i++)
 			{
-				if (typeList.GetValue().getType().toLowerCase().equals(ty.toLowerCase()) || typeList.GetValue().getType().toLowerCase().equals("Legendary_"+ty))
+				if (typeList.GetValue().getType().toLowerCase().equals(ty.toLowerCase()) || typeList.GetValue().getType().toLowerCase().equals("legendary "+ty.toLowerCase()))
 				{
 					newTypeTemp.Enqueue(typeList.GetValue());
 				}
@@ -323,7 +323,8 @@ public class main {
     			FireList.Replace(Keytype);
     		}
     	}
-    	System.out.println("FIRE ALERT PRIORITY LIST\n______________________________________________");
+    	System.out.println("<b>FIRE ALERT PRIORITY LIST<\b>");
+    	System.out.println("Name\tType\tCMC\tPrice\tInStock\n__________________________________________________");
 		return printList(FireList, true);
 	}
 	

@@ -68,4 +68,8 @@ Treasure Cruise	Sorcery	7U	0.18	true
 Walk the Aeons	Sorcery	4UU	5.82	true
 Walker of Secret Ways	Creature	2U	0.39	true
 Worn PowerStone	Artifact	3	0.48	true
+<<<<<<< HEAD
 Yuriko, the Tiger's Shadow	Lengendary_Creature	1UB	15.9	true
+=======
+Yuriko, the Tiger's Shadow	Lengendary Creature	1UB	15.9	true
+>>>>>>> d36662ac86bf25ff2742516101b80c733bcd1a70
